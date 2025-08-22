@@ -18,22 +18,23 @@ const CategoryList = ({ data }) => {
 		accordionRefs.current[i] = el
 	}
 
-	const populateAccordionOffset = (i) => {
-		accordionRefs.current.forEach((ref, index) => accordionOffsetRefs.current[index] = ref.offsetTop)
-		scrollToAccordion(i)
-		if (i === Object.keys(data).length - 1) {
+	const populateAccordionOffset = (i, title) => {
+		accordionRefs.current.forEach((ref, index) => accordionOffsetRefs.current[index] = ref.getBoundingClientRect().top)
+		if (activeTab === title) {
+			scrollToAccordion(i)
+		}
+		if (!initialized.current && i === Object.keys(data).length - 1) {
 			initialized.current = true
 		}
 	}
 
 	const scrollToAccordion = (i) => {
 		if (initialized.current) {
-			const absoluteTop = accordionRefs.current[i].getBoundingClientRect().top + window.pageYOffset
+			const absoluteTop = accordionOffsetRefs.current[i] + window.pageYOffset
 			window.scrollTo({
-				top: absoluteTop + 343, // Scroll to the top of the page
+				top: absoluteTop - 75, // Scroll to the top of the page
 				behavior: 'smooth' // Optional: for smooth scrolling animation
 			})
-			console.log("finsihed scrolling!")
 		}
 	}
 
@@ -46,18 +47,10 @@ const CategoryList = ({ data }) => {
 			setActiveTab(tabName)
 			subRefs.current = []
 			subOffsets.current = []
-			// setTimeout(() => {
-			// 	window.scrollTo({
-			// 		top: 200, // Scroll to the top of the page
-			// 		behavior: 'smooth' // Optional: for smooth scrolling animation
-			// 	})
-			// 	console.log("finsihed scrolling!")
-			// }, 100)
 		}
 	}
 
 	useEffect(() => {
-
 		const handleScroll = () => {
 			const scrollPos = window.scrollY;
       const scrollingDown = scrollPos > lastScrollY.current;
