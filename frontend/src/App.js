@@ -29,7 +29,8 @@ const App = () => {
 	const [loading, setLoading] = useState(true)
 
 	useEffect(() => {
-		axios.get("/api/menu")
+		// axios.get("http://localhost:4000/menu")
+		axios.get("https://k-sushi.vercel.app/api/menu")
 			.then(response => {
 				setData(response.data)
 				setLoading(false)
