@@ -11,32 +11,37 @@ const CategoryList = ({ data }) => {
 	const initialized = useRef(false)
 	const lastScrollY = useRef(0)
 
-	const accordionRefs = useRef([])
-	const accordionOffsetRefs = useRef([])
+	const activeAccordionRef = useRef(null)
 
-	const setAccordionRef = (el, i) => {
-		accordionRefs.current[i] = el
-	}
-
-	const populateAccordionOffset = (i, title) => {
-		accordionRefs.current.forEach((ref, index) => accordionOffsetRefs.current[index] = ref.getBoundingClientRect().top)
-		if (activeTab === title) {
-			scrollToAccordion(i)
-		}
-		if (!initialized.current && i === Object.keys(data).length - 1) {
-			initialized.current = true
-		}
-	}
-
-	const scrollToAccordion = (i) => {
-		if (initialized.current) {
-			const absoluteTop = accordionOffsetRefs.current[i] + window.pageYOffset
+	const scrollToAccordion = (title) => {
+		if (activeTab === title && activeAccordionRef.current) {
+			const absoluteTop = activeAccordionRef.current.getBoundingClientRect().top + window.pageYOffset
 			window.scrollTo({
 				top: absoluteTop - 75, // Scroll to the top of the page
 				behavior: 'smooth' // Optional: for smooth scrolling animation
 			})
 		}
 	}
+
+	// const populateAccordionOffset = (i, title) => {
+	// 	accordionRefs.current.forEach((ref, index) => accordionOffsetRefs.current[index] = ref.getBoundingClientRect().top)
+	// 	if (activeTab === title) {
+	// 		scrollToAccordion(i)
+	// 	}
+	// 	if (!initialized.current && i === Object.keys(data).length - 1) {
+	// 		initialized.current = true
+	// 	}
+	// }
+
+	// const scrollToAccordion = (i) => {
+	// 	if (initialized.current) {
+	// 		const absoluteTop = accordionOffsetRefs.current[i] + window.pageYOffset
+	// 		window.scrollTo({
+	// 			top: absoluteTop - 75, // Scroll to the top of the page
+	// 			behavior: 'smooth' // Optional: for smooth scrolling animation
+	// 		})
+	// 	}
+	// }
 
 	const handleTab = (tabName, i) => {
 		if (activeTab === tabName) {
@@ -99,8 +104,8 @@ const CategoryList = ({ data }) => {
 					activeSub={activeSub}
 					subRefs={subRefs}
 					subOffsets={subOffsets}
-					setAccordionRef={setAccordionRef}
-					populateAccordionOffset={populateAccordionOffset}
+					accordionRef={activeAccordionRef}
+					scrollToAccordion={scrollToAccordion}
         />)
 		})}
 		</S.CategoryListContainer>

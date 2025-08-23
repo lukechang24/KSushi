@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import ItemCard from "../ItemCard/itemCard"
 import * as S from "./category.styles"
 
-const Category = ({title, items, index, activeTab, handleTab, activeSub, subRefs, subOffsets, setAccordionRef, populateAccordionOffset }) => {
+const Category = ({title, items, index, activeTab, handleTab, activeSub, subRefs, subOffsets, accordionRef, scrollToAccordion }) => {
 
 	const setSubRef = (el, i) => {
 		if (el && activeTab === title) {
@@ -18,11 +18,17 @@ const Category = ({title, items, index, activeTab, handleTab, activeSub, subRefs
 		}
 	}
 
+	const setAccordionRef = el => {
+		if (activeTab === title) {
+			accordionRef.current = el
+		}
+	}
+
 	return(
 		<S.CategoryContainer>
 			<S.AccordionContainer
 				onClick={() => handleTab(title, index)}
-				ref={(el) => setAccordionRef(el, index)}
+				ref={(el) => setAccordionRef(el)}
 				active={activeTab === title}
 			>
 				<S.AccordionTitle>{title}</S.AccordionTitle>
@@ -39,14 +45,14 @@ const Category = ({title, items, index, activeTab, handleTab, activeSub, subRefs
 					style={{ overflow: "hidden" }}
 					onAnimationComplete={() => {
 						populateSubRefOffset()
-						populateAccordionOffset(index, title)
+						scrollToAccordion(title)
 					}}
 				>
 					{items.map((item, i) => {
 						if (item.name.indexOf("Title") === 0) {
 							const subcategory = item.name.split("Title ")[1]
 							return(
-								<>
+								<React.Fragment key={subcategory}>
 									<S.SubcategoryTitle
 										key={subcategory}
 										ref={(el) => setSubRef(el, i)}
@@ -56,7 +62,7 @@ const Category = ({title, items, index, activeTab, handleTab, activeSub, subRefs
 										{subcategory.toUpperCase()}
 									</S.SubcategoryTitle>
 									<S.InvisibleSpace show={activeSub === subcategory}>X</S.InvisibleSpace>
-								</>
+								</React.Fragment>
 							)
 						} else {
 							return(
