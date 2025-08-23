@@ -29,7 +29,7 @@ const App = () => {
 	const [loading, setLoading] = useState(true)
 
 	useEffect(() => {
-		axios.get("http://localhost:4000/menu") 
+		axios.get("/api/menu")
 			.then(response => {
 				setData(response.data)
 				setLoading(false)
