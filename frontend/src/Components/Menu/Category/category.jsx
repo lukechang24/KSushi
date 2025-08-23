@@ -23,6 +23,7 @@ const Category = ({title, items, index, activeTab, handleTab, activeSub, subRefs
 			<S.AccordionContainer
 				onClick={() => handleTab(title, index)}
 				ref={(el) => setAccordionRef(el, index)}
+				active={activeTab === title}
 			>
 				<S.AccordionTitle>{title}</S.AccordionTitle>
 			</S.AccordionContainer>
@@ -34,7 +35,7 @@ const Category = ({title, items, index, activeTab, handleTab, activeSub, subRefs
 						height: activeTab === title ? "auto" : 0,
 						opacity: activeTab === title ? 1 : 0,
 					}}
-					transition={{ duration: 0.3, ease: "easeInOut" }}
+					transition={{ duration: 0.25, ease: "easeIn" }}
 					style={{ overflow: "hidden" }}
 					onAnimationComplete={() => {
 						populateSubRefOffset()

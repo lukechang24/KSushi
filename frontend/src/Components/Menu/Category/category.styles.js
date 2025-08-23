@@ -17,8 +17,11 @@ export const CategoryContainer = styled.div`
 
 export const AccordionContainer = styled.div`
 	width: 100%;
+	color: ${props => props.active ? "white" : "black"};
+	background-color: ${props => props.active ? "black" : "white"};
 	border: 1px solid black;
 	margin: 5px 0;
+	transition: all 0.25s ease-in-out;
 `
 
 export const AccordionTitle = styled.div`
