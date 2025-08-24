@@ -23,26 +23,6 @@ const CategoryList = ({ data }) => {
 		}
 	}
 
-	// const populateAccordionOffset = (i, title) => {
-	// 	accordionRefs.current.forEach((ref, index) => accordionOffsetRefs.current[index] = ref.getBoundingClientRect().top)
-	// 	if (activeTab === title) {
-	// 		scrollToAccordion(i)
-	// 	}
-	// 	if (!initialized.current && i === Object.keys(data).length - 1) {
-	// 		initialized.current = true
-	// 	}
-	// }
-
-	// const scrollToAccordion = (i) => {
-	// 	if (initialized.current) {
-	// 		const absoluteTop = accordionOffsetRefs.current[i] + window.pageYOffset
-	// 		window.scrollTo({
-	// 			top: absoluteTop - 75, // Scroll to the top of the page
-	// 			behavior: 'smooth' // Optional: for smooth scrolling animation
-	// 		})
-	// 	}
-	// }
-
 	const handleTab = (tabName, i) => {
 		if (activeTab === tabName) {
 			subRefs.current = []
