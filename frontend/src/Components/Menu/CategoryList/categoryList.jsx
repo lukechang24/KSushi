@@ -1,17 +1,27 @@
-import React, { useState, useEffect, useRef, act } from "react"
-import Category from "../Category/category"	
+import React, { useState, useEffect, useRef } from "react"
+import Category from "../Category/category"
+import Modal from "../Modal/modal"
 
 import * as S from "./CategoryList.styles"
 
 const CategoryList = ({ data }) => {
 	const [activeTab, setActiveTab] = useState(Object.keys(data)[0])
 	const [activeSub, setActiveSub] = useState("")
+	const [selectedItem, setSelectedItem] = useState(null)
+
 	const subRefs = useRef([])
 	const subOffsets = useRef([])
-	const initialized = useRef(false)
 	const lastScrollY = useRef(0)
 
 	const activeAccordionRef = useRef(null)
+
+	const handleItemClick = (item) => {
+		setSelectedItem(item)
+	}
+
+	const closeModal = () => {
+		setSelectedItem(null)
+	}
 
 	const scrollToAccordion = (title) => {
 		if (activeTab === title && activeAccordionRef.current) {
@@ -47,7 +57,7 @@ const CategoryList = ({ data }) => {
         // Scroll down: last subcategory whose top <= scroll
         let current = ""
         for (let i = 0; i < subOffsets.current.length; i++) {
-          if (subOffsets.current[i] <= scrollPos) {
+          if (subOffsets.current[i] - 20 <= scrollPos) {
             current = subRefs.current[i].dataset.name
           }
         }
@@ -78,7 +88,8 @@ const CategoryList = ({ data }) => {
           title={category}
           items={data[category]}
 					index={i}
-					initialized={initialized}
+					handleItemClick={handleItemClick}
+					closeModal={closeModal}
 					activeTab={activeTab}
 					handleTab={handleTab}
 					activeSub={activeSub}
@@ -88,6 +99,12 @@ const CategoryList = ({ data }) => {
 					scrollToAccordion={scrollToAccordion}
         />)
 		})}
+		{selectedItem &&
+			<Modal 
+				data={selectedItem}
+				closeModal={closeModal}
+			/>
+		}
 		</S.CategoryListContainer>
 	)
 }

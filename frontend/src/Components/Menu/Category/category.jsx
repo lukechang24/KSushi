@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useRef } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import React from "react"
+import { AnimatePresence } from "framer-motion"
 
 import ItemCard from "../ItemCard/itemCard"
 import * as S from "./category.styles"
 
-const Category = ({title, items, index, activeTab, handleTab, activeSub, subRefs, subOffsets, accordionRef, scrollToAccordion }) => {
+const Category = ({title, items, index, handleItemClick, closeModal, activeTab, handleTab, activeSub, subRefs, subOffsets, accordionRef, scrollToAccordion }) => {
 
 	const setSubRef = (el, i) => {
 		if (el && activeTab === title) {
@@ -47,6 +47,7 @@ const Category = ({title, items, index, activeTab, handleTab, activeSub, subRefs
 						populateSubRefOffset()
 						scrollToAccordion(title)
 					}}
+					setMargin={activeTab === title}
 				>
 					{items.map((item, i) => {
 						if (item.name.indexOf("Title") === 0) {
@@ -66,7 +67,10 @@ const Category = ({title, items, index, activeTab, handleTab, activeSub, subRefs
 							)
 						} else {
 							return(
-								<ItemCard data={item}/>
+								<ItemCard 
+									data={item}
+									handleItemClick={handleItemClick}
+								/>
 							)
 						}
 				})}
