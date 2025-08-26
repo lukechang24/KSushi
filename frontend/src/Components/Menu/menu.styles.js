@@ -3,6 +3,7 @@ import styled from "styled-components"
 export const MenuContainer = styled.div`
 	width: 100%;
 	padding: 0 ${({ theme }) => theme.spacing.pagePadding.mobile};
+	margin: 65px 0;
 `
 
 export const MenuList = styled.ul`

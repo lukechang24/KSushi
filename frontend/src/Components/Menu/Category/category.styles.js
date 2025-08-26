@@ -1,5 +1,6 @@
 import styled from "styled-components"
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"
+import { RxCaretRight, RxCaretDown } from "react-icons/rx";
 
 // const fade = keyframes`
 // 	from {
@@ -16,9 +17,12 @@ export const CategoryContainer = styled.div`
 `
 
 export const AccordionContainer = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	width: 100%;
-	color: ${props => props.active ? "white" : "black"};
-	background-color: ${props => props.active ? "black" : "white"};
+	// color: ${props => props.active ? "white" : "black"};
+	// background-color: ${props => props.active ? "black" : "white"};
 	border: 1px solid black;
 	margin: 0 0 10px;
 	transition: all 0.25s ease-in-out;
@@ -29,6 +33,18 @@ export const AccordionTitle = styled.div`
 	padding: 10px;
 `
 
+export const RightCaret = styled(RxCaretRight)`
+	font-size: 25px;
+	margin-right: 10px;
+`
+
+export const DownCaret = styled(RxCaretDown)`
+	font-size: 25px;
+	font-weight: lighter;
+	margin-right: 10px;
+`
+
+
 export const ItemList = styled(motion.div)`
 	display: flex;
 	flex-wrap: wrap;
@@ -38,7 +54,7 @@ export const ItemList = styled(motion.div)`
 
 export const SubcategoryTitle = styled.h2`
 	position: ${props => props.sticky ? "fixed" : "relative"};
-	top: 0px;
+	top: ${props => props.sticky ? "44px" : "0"};
 	width: 100%;
 	font-size: 20px;
 	background-color: white;

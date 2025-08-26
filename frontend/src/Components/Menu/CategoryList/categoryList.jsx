@@ -5,7 +5,7 @@ import Modal from "../Modal/modal"
 import * as S from "./CategoryList.styles"
 
 const CategoryList = ({ data }) => {
-	const [activeTab, setActiveTab] = useState(Object.keys(data)[0])
+	const [activeTab, setActiveTab] = useState(null)
 	const [activeSub, setActiveSub] = useState("")
 	const [selectedItem, setSelectedItem] = useState(null)
 
@@ -26,8 +26,11 @@ const CategoryList = ({ data }) => {
 	const scrollToAccordion = (title) => {
 		if (activeTab === title && activeAccordionRef.current) {
 			const absoluteTop = activeAccordionRef.current.getBoundingClientRect().top + window.pageYOffset
+			if (absoluteTop > window.pageYOffset) {
+				return
+			}
 			window.scrollTo({
-				top: absoluteTop - 75, // Scroll to the top of the page
+				top: absoluteTop - 60, // Scroll to the top of the page
 				behavior: 'smooth' // Optional: for smooth scrolling animation
 			})
 		}
@@ -39,6 +42,7 @@ const CategoryList = ({ data }) => {
 			subOffsets.current = []
 			setActiveTab(null)
 		} else {
+			setActiveSub(null)
 			setActiveTab(tabName)
 			subRefs.current = []
 			subOffsets.current = []
@@ -46,6 +50,7 @@ const CategoryList = ({ data }) => {
 	}
 
 	useEffect(() => {
+		// setActiveTab(Object.keys(data)[0])
 		const handleScroll = () => {
 			const scrollPos = window.scrollY;
       const scrollingDown = scrollPos > lastScrollY.current;
@@ -57,7 +62,7 @@ const CategoryList = ({ data }) => {
         // Scroll down: last subcategory whose top <= scroll
         let current = ""
         for (let i = 0; i < subOffsets.current.length; i++) {
-          if (subOffsets.current[i] - 20 <= scrollPos) {
+          if (subOffsets.current[i] - 50 <= scrollPos) {
             current = subRefs.current[i].dataset.name
           }
         }
@@ -66,7 +71,7 @@ const CategoryList = ({ data }) => {
         // Scroll up: first subcategory whose top < scroll, or previous one
         let current = ""
         for (let i = subOffsets.current.length - 1; i >= 0; i--) {
-          if (subOffsets.current[i] < scrollPos) {
+          if (subOffsets.current[i] - 50 < scrollPos) {
             current = subRefs.current[i].dataset.name
             break
           }
@@ -90,7 +95,7 @@ const CategoryList = ({ data }) => {
 					index={i}
 					handleItemClick={handleItemClick}
 					closeModal={closeModal}
-					activeTab={activeTab}
+					isOpen={activeTab === category}
 					handleTab={handleTab}
 					activeSub={activeSub}
 					subRefs={subRefs}
@@ -99,6 +104,9 @@ const CategoryList = ({ data }) => {
 					scrollToAccordion={scrollToAccordion}
         />)
 		})}
+		{activeSub && 
+			<S.CategoryMarker>{activeTab}</S.CategoryMarker>
+		}
 		{selectedItem &&
 			<Modal 
 				data={selectedItem}

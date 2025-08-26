@@ -4,22 +4,22 @@ import { AnimatePresence } from "framer-motion"
 import ItemCard from "../ItemCard/itemCard"
 import * as S from "./category.styles"
 
-const Category = ({title, items, index, handleItemClick, closeModal, activeTab, handleTab, activeSub, subRefs, subOffsets, accordionRef, scrollToAccordion }) => {
+const Category = ({title, items, index, handleItemClick, closeModal, isOpen, handleTab, activeSub, subRefs, subOffsets, accordionRef, scrollToAccordion }) => {
 
 	const setSubRef = (el, i) => {
-		if (el && activeTab === title) {
+		if (el &&  isOpen) {
 			subRefs.current[i] = el
 		}
   }
 
 	const populateSubRefOffset = () => {
-		if (activeTab === title) {
+		if (isOpen) {
 			subRefs.current.forEach((ref, i) => subOffsets.current[i] = ref.offsetTop)
 		}
 	}
 
 	const setAccordionRef = el => {
-		if (activeTab === title) {
+		if (isOpen) {
 			accordionRef.current = el
 		}
 	}
@@ -29,17 +29,22 @@ const Category = ({title, items, index, handleItemClick, closeModal, activeTab, 
 			<S.AccordionContainer
 				onClick={() => handleTab(title, index)}
 				ref={(el) => setAccordionRef(el)}
-				active={activeTab === title}
+				active={isOpen}
 			>
 				<S.AccordionTitle>{title}</S.AccordionTitle>
+				{isOpen ?
+					<S.DownCaret />
+				:
+					<S.RightCaret />
+				}
 			</S.AccordionContainer>
-			<AnimatePresence initial={true}>
+			<AnimatePresence initial={false}>
 				<S.ItemList
 					key={title}
-					initial={true}
+					initial={false}
 					animate={{
-						height: activeTab === title ? "auto" : 0,
-						opacity: activeTab === title ? 1 : 0,
+						height: isOpen ? "auto" : 0,
+						opacity: isOpen ? 1 : 0,
 					}}
 					transition={{ duration: 0.25, ease: "easeIn" }}
 					style={{ overflow: "hidden" }}
@@ -47,7 +52,7 @@ const Category = ({title, items, index, handleItemClick, closeModal, activeTab, 
 						populateSubRefOffset()
 						scrollToAccordion(title)
 					}}
-					setMargin={activeTab === title}
+					setMargin={isOpen}
 				>
 					{items.map((item, i) => {
 						if (item.name.indexOf("Title") === 0) {

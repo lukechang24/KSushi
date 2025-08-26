@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  body, h1, h2, h3, p, ul, ol {
+  body, h1, h2, h3, p, ul, ol, button {
     margin: 0;
     padding: 0;
 		font-weight: normal;

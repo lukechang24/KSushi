@@ -22,7 +22,7 @@ export const Modal = styled.div`
 	display: flex;
 	flex-direction: column;
 	background-color: white;
-	z-index: 1;
+	z-index: 50;
 	margin: 100px 10px 10px;
 	padding: 30px;
 `
