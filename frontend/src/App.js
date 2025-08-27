@@ -30,7 +30,7 @@ const App = () => {
 
 	useEffect(() => {
 		// axios.get("http://localhost:4000/menu")
-		axios.get("https://k-sushi.vercel.app/api/menu")
+		axios.get("https://ksushi.vercel.app/api/menu")
 			.then(response => {
 				setData(response.data)
 				setLoading(false)
