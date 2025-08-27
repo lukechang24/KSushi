@@ -6,7 +6,7 @@ const ItemCard = ({ data, handleItemClick }) => {
 	return(
 		<S.ItemContainer onClick={() => handleItemClick(data)}>
 			<S.ItemImage 
-				src={data.url ? getMenuImageUrl(data.url, "320x320") : "https://kuranew-1c49a.kxcdn.com/kura_admin/asset/uploads/387/menu/menu-2023-website-nigiri-albacore-toro-bintoro.png"}
+				src={data.url ? getMenuImageUrl(data.url, "530x530") : "https://kuranew-1c49a.kxcdn.com/kura_admin/asset/uploads/387/menu/menu-2023-website-nigiri-albacore-toro-bintoro.png"}
 				loading="lazy"
 			/>
 			<S.ItemInfoContainer>
