@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const ItemContainer = styled.li`
   list-style: none;
-	flex: 0 1 calc(50% - 10px);
+	flex: 0 1 calc(50% - 5px);
 	margin-bottom: 15px;
 `
 

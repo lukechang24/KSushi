@@ -5,8 +5,10 @@ export const ModalContainer = styled.div`
 	inset: 0;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	width: 100vw;
 	height: 100vh;
+	overflow: hidden;
 `
 
 export const Overlay = styled.div`
@@ -23,7 +25,7 @@ export const Modal = styled.div`
 	flex-direction: column;
 	background-color: white;
 	z-index: 50;
-	margin: 100px 10px 10px;
+	margin: 0 10px;
 	padding: 30px;
 `
 
