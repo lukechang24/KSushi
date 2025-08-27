@@ -8,7 +8,7 @@ export const ItemContainer = styled.li`
 
 export const ItemImage = styled.img`
 	width: 100%;
-	height: 121.88px; //CHANGE THIS LATER
+	height: 120px;
 	object-fit: cover;
 `
 
@@ -24,5 +24,6 @@ export const ItemName = styled.h3`
 
 export const ItemPrice = styled.p`
 	font-size: 12px;
+	padding-top: 1px;
 	margin-left: 5px;
 `

@@ -9,7 +9,10 @@ const Modal = ({ data, closeModal }) => {
 			<S.Overlay></S.Overlay>
 			<S.Modal>
 				<S.ExitButton onClick={() => closeModal()}>×</S.ExitButton>
-				<S.ModalImg src={getMenuImageUrl(data.url, "1040x1040")}></S.ModalImg>
+				<S.ModalImg
+					src={getMenuImageUrl(data.url, "1040x1040")}
+					loading="lazy"
+				/>
 			</S.Modal>
 		</S.ModalContainer>
 	)
