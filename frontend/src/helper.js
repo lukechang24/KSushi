@@ -1,11 +1,20 @@
-export const getMenuImageUrl = (url, size = 'thumbnail') => {
+export const getMenuImageUrl = (url, size) => {
   if (!url) return "";
-	
-  if (size === "thumbnail") {
-    // Insert _200x200 before the extension
-    return url.replace(/(\.[a-z]+)(\?|$)/, "_200x200$1$2")
+
+  if (size) {
+    // Remove query params first
+    const [baseUrl, query] = url.split("?");
+    
+    // Extract extension from base URL (jpg, png, webp, etc.)
+    const extMatch = baseUrl.match(/\.([a-zA-Z0-9]+)$/);
+    const ext = extMatch ? extMatch[1] : "jpg";
+
+    // Replace extension with _SIZE.webp (since Firebase resized outputs webp)
+    const resizedUrl = baseUrl.replace(/\.[a-zA-Z0-9]+$/, `_${size}.webp`);
+
+    return query ? `${resizedUrl}?${query}` : resizedUrl;
   } else {
-    // full-size: just use original
+    // No resizing → return original
     return url;
   }
 };
