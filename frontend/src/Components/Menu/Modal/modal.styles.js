@@ -20,6 +20,7 @@ export const Overlay = styled.div`
 `
 
 export const Modal = styled.div`
+	width: 90%;
 	position: fixed;
 	display: flex;
 	flex-direction: column;
@@ -27,6 +28,14 @@ export const Modal = styled.div`
 	z-index: 50;
 	margin: 0 10px;
 	padding: 30px;
+
+	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+		width: 400px;
+	}
+
+	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+		width: 500px;
+	}
 `
 
 export const ExitButton = styled.button`
@@ -52,6 +61,9 @@ export const ExitButton = styled.button`
 
 export const ModalImg = styled.img`
 	max-width: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+
 `
 
 export const InfoContainer = styled.div`

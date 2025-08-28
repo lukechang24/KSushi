@@ -48,7 +48,15 @@ export const DownCaret = styled(RxCaretDown)`
 export const ItemList = styled(motion.div)`
 	display: flex;
 	flex-wrap: wrap;
-	gap: 0 10px;
+	gap: 0 4%;
+
+	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+		gap: 10px 2%;
+	}
+
+	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+		gap: 25px 2%;
+	}
 	// margin-top: ${props => props.setMargin ? "10px" : "0"};
 `
 

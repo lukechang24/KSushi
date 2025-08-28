@@ -16,8 +16,10 @@ const theme = {
     },
   },
   breakpoints: {
+    mobile: "480px",
     tablet: "768px",
-    desktop: "1200px",
+    laptop: "1024px",
+    desktop: "1440px",
   },
 };
 
