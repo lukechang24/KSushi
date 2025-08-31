@@ -9,6 +9,8 @@ export const ModalContainer = styled.div`
 	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
+	opacity: ${({ $isLoaded }) => ($isLoaded ? 1 : 0)};
+	transition: opacity 0.3s ease;
 `
 
 export const Overlay = styled.div`
@@ -24,6 +26,7 @@ export const Modal = styled.div`
 	position: fixed;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	background-color: white;
 	z-index: 50;
 	margin: 0 10px;
@@ -58,14 +61,40 @@ export const ExitButton = styled.button`
 	}
 `
 
+export const ModalImageContainer = styled.div`
+`
 
-export const ModalImg = styled.img`
+
+export const BlurredImage = styled.img`
+  position: absolute;
+  inset: 0;
+	max-width: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;  height: auto;
+  filter: blur(20px);
+  opacity: ${({ $isBlurred }) => ($isBlurred ? 1 : 0)};
+  transition: opacity 0.3s ease;
+`
+
+export const FullImage = styled.img`
+  position: relative;
 	max-width: 100%;
 	aspect-ratio: 4 / 3;
 	object-fit: cover;
-
+  opacity: ${({ $isLoaded }) => ($isLoaded ? 1 : 0)};
+  transition: opacity 0.3s ease;
 `
 
 export const InfoContainer = styled.div`
 	display: flex;
+	justify-content: space-between;
+`
+
+export const ModalName = styled.h2`
+	font-weight: 600;
+	margin: 10px 0;
+`
+
+export const ModalPrice = styled.p`
+
 `
