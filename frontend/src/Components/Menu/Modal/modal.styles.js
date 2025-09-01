@@ -1,4 +1,14 @@
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
+import { FaPepperHot } from "react-icons/fa";
+
+const fadeIn = keyframes`
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+`
 
 export const ModalContainer = styled.div`
 	position: fixed;
@@ -9,8 +19,7 @@ export const ModalContainer = styled.div`
 	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
-	opacity: ${({ $isLoaded }) => ($isLoaded ? 1 : 0)};
-	transition: opacity 0.3s ease;
+	animation: ${fadeIn} 0.2s ease-in-out forwards;
 `
 
 export const Overlay = styled.div`
@@ -26,7 +35,6 @@ export const Modal = styled.div`
 	position: fixed;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 	background-color: white;
 	z-index: 50;
 	margin: 0 10px;
@@ -62,39 +70,65 @@ export const ExitButton = styled.button`
 `
 
 export const ModalImageContainer = styled.div`
+	position: relative;
+  width: 100%;
+  height: auto;
+	aspect-ratio: 1 / 1;
 `
 
 
 export const BlurredImage = styled.img`
-  position: absolute;
-  inset: 0;
-	max-width: 100%;
-	aspect-ratio: 4 / 3;
-	object-fit: cover;  height: auto;
-  filter: blur(20px);
-  opacity: ${({ $isBlurred }) => ($isBlurred ? 1 : 0)};
-  transition: opacity 0.3s ease;
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
 `
 
 export const FullImage = styled.img`
-  position: relative;
-	max-width: 100%;
-	aspect-ratio: 4 / 3;
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	aspect-ratio: 1 / 1;
 	object-fit: cover;
-  opacity: ${({ $isLoaded }) => ($isLoaded ? 1 : 0)};
-  transition: opacity 0.3s ease;
-`
-
-export const InfoContainer = styled.div`
-	display: flex;
-	justify-content: space-between;
+	display: ${({ $isLoaded }) => ($isLoaded ? "block" : "none")};
 `
 
 export const ModalName = styled.h2`
+	color: black;
 	font-weight: 600;
-	margin: 10px 0;
+	margin: 10px 0 0;
 `
 
 export const ModalPrice = styled.p`
+	color: #555;
+	margin: 5px 0 0;
+`
 
+export const ModalDescription = styled.p`
+	color: #555;
+	line-height: 25px;
+	white-space: pre-line;
+	margin: 10px 0 0;
+`
+
+export const ModalInfoContainer = styled.div`
+	display: flex;
+	align-items: center;
+	color: #444;
+	margin: 5px 0 0;
+	& > *:not(:last-child)::after {
+    content: "•";
+    margin: 0 8px;
+    color: black; 
+  }
+`
+
+export const ModalPieceCount = styled.p`
+`
+
+export const SpiceLevel = styled(FaPepperHot)`
+	color: red;
 `
