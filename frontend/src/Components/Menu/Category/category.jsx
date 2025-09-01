@@ -49,8 +49,9 @@ const Category = ({title, items, index, handleItemClick, closeModal, isOpen, han
 					transition={{ duration: 0.25, ease: "easeIn" }}
 					style={{ overflow: "hidden" }}
 					onAnimationComplete={() => {
+						if (!isOpen) return
 						populateSubRefOffset()
-						scrollToAccordion(title)
+						scrollToAccordion()
 					}}
 					setMargin={isOpen}
 				>

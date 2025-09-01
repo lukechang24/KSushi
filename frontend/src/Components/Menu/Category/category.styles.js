@@ -21,9 +21,7 @@ export const AccordionContainer = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
-	// color: ${props => props.active ? "white" : "black"};
-	// background-color: ${props => props.active ? "black" : "white"};
-	border: 1px solid black;
+	border-bottom: 1px solid ${props => props.theme.colors.text};
 	margin: 0 0 10px;
 	transition: all 0.25s ease-in-out;
 `
@@ -65,7 +63,7 @@ export const SubcategoryTitle = styled.h2`
 	top: ${props => props.sticky ? "44px" : "0"};
 	width: 100%;
 	font-size: 20px;
-	background-color: white;
+	background-color: ${props => props.theme.colors.background};
 	padding: ${props => props.sticky ? "7px 0 10px" : "7px 0 10px"};
 	box-shadow: ${props => props.sticky ? "none" : "none"};
 `
@@ -74,6 +72,6 @@ export const InvisibleSpace = styled.h2`
 	width: 100%;
 	font-size: 20px;
 	margin: 5px 0 10px;
-	color: white;
+	color: ${props => props.theme.colors.background};
 	display: ${props => props.show ? "block" : "none"};
 `

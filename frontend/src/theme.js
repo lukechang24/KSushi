@@ -2,11 +2,12 @@ const theme = {
 	colors: {
     primary: "#0C1821",
     accent: "hsl(0, 100%, 30%)",
-    background: "white",
-    text: "#333",
+    background: "#0e0e0e",
+    text: "#fdfdfd",
   },
   fonts: {
     main: "'Montserrat', sans-serif",
+		heading: "'Archivo', sans-serif"
   },
   spacing: {
     pagePadding: {

@@ -14,6 +14,7 @@ const CategoryList = ({ data }) => {
 	const lastScrollY = useRef(0)
 
 	const activeAccordionRef = useRef(null)
+	const prevAccordionTop = useRef(null)
 
 	const handleItemClick = (item) => {
 		setSelectedItem(item)
@@ -23,8 +24,8 @@ const CategoryList = ({ data }) => {
 		setSelectedItem(null)
 	}
 
-	const scrollToAccordion = (title) => {
-		if (activeTab === title && activeAccordionRef.current) {
+	const scrollToAccordion = () => {
+		if (activeAccordionRef.current) {
 			const absoluteTop = activeAccordionRef.current.getBoundingClientRect().top + window.pageYOffset
 			if (absoluteTop > window.pageYOffset) {
 				return
@@ -37,6 +38,10 @@ const CategoryList = ({ data }) => {
 	}
 
 	const handleTab = (tabName, i) => {
+		if (activeAccordionRef.current) {
+			prevAccordionTop.current = activeAccordionRef.current.getBoundingClientRect().top + window.pageYOffset
+		}
+
 		if (activeTab === tabName) {
 			subRefs.current = []
 			subOffsets.current = []

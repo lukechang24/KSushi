@@ -7,11 +7,12 @@ export const CategoryListContainer = styled.div`
 `
 
 export const CategoryMarker = styled.button`
+	font-family: ${props => props.theme.fonts.heading};
 	position: fixed;
 	top: calc(44px + 10px);
-	// left: 50%;
-	// transform: translateX(-50%);
+	background-color: transparent;
+	color: white;
 	right: ${({ theme }) => theme.spacing.pagePadding.mobile};
 	border: 0;
-	background-color: transparent;
+	z-index: 6;
 `

@@ -23,6 +23,7 @@ export const ItemImage = styled.img`
 	width: 100%;
   aspect-ratio: 4 / 3;
 	object-fit: cover;
+	// filter: brightness(90%);
 `
 
 export const ItemInfoContainer = styled.div`

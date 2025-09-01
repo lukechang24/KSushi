@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
 		font-weight: normal;
   }
   body {
-    font-family: ${props => props.theme.fonts.main};
+    font-family: ${props => props.theme.fonts.heading};
     background-color: ${props => props.theme.colors.background};
     color: ${props => props.theme.colors.text};
 		display: flex;

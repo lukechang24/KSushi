@@ -35,7 +35,7 @@ export const Modal = styled.div`
 	position: fixed;
 	display: flex;
 	flex-direction: column;
-	background-color: white;
+	background-color: ${props => props.theme.colors.background};
 	z-index: 50;
 	margin: 0 10px;
 	padding: 30px;
@@ -59,6 +59,7 @@ export const ExitButton = styled.button`
 	font-size: 30px;
 	padding: 0;
 	border: none;
+	color: ${props => props.theme.colors.text};
 	&:active {
 		color: white;
 		background-color: darkRed;
@@ -74,6 +75,7 @@ export const ModalImageContainer = styled.div`
   width: 100%;
   height: auto;
 	aspect-ratio: 1 / 1;
+	margin: 0 0 5px;
 `
 
 
@@ -91,38 +93,38 @@ export const FullImage = styled.img`
 	inset: 0;
 	width: 100%;
 	height: 100%;
+	display: ${({ $isLoaded }) => ($isLoaded ? "block" : "none")};
 	aspect-ratio: 1 / 1;
 	object-fit: cover;
-	display: ${({ $isLoaded }) => ($isLoaded ? "block" : "none")};
+	// filter: brightness(90%)
 `
 
 export const ModalName = styled.h2`
-	color: black;
+	color: ${props => props.theme.colors.text};
 	font-weight: 600;
-	margin: 10px 0 0;
+	margin: 0 0 5px;
 `
 
 export const ModalPrice = styled.p`
-	color: #555;
-	margin: 5px 0 0;
+	color: #a1a1a1;
+	margin: 0 0 20px;
 `
 
 export const ModalDescription = styled.p`
-	color: #555;
+	color: #a1a1a1;
 	line-height: 25px;
 	white-space: pre-line;
-	margin: 10px 0 0;
+	margin: 0 0 5px;
 `
 
 export const ModalInfoContainer = styled.div`
 	display: flex;
 	align-items: center;
-	color: #444;
-	margin: 5px 0 0;
+	color: #a1a1a1;
 	& > *:not(:last-child)::after {
     content: "•";
-    margin: 0 8px;
-    color: black; 
+    margin: 0 6px;
+    color: #a1a1a1;
   }
 `
 
