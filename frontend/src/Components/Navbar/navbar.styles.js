@@ -10,18 +10,41 @@ export const NavbarContainer = styled.div`
 	align-items: center;
 	background-color: ${props => props.theme.colors.background};
 	color: white;
-	padding: 10px ${({ theme }) => theme.spacing.pagePadding.mobile};
+	padding: ${({ theme }) => theme.spacing.navbarPadding.mobile} ${({ theme }) => theme.spacing.pagePadding.mobile};
 	box-sizing: border-box;
 	z-index: 30;
 `
 
 export const NavbarLogo = styled.h3`
+	// font-family: "Noto Serif JP", serif;
+`
 
+export const NavLinkContainer = styled.div`
+	display: none;
+	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+		display: block;
+	}
+`
+
+export const NavLink = styled.a`
+	text-decoration: none;
+  color: ${({ theme }) => theme.colors.text};
+  font-weight: 500;
+  font-size: 16px;
+	margin-left: 25px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  &:hover {
+    color: ${({ theme }) => theme.colors.hover};
+  }
 `
 
 export const HamburgerContainer = styled.div`
 	display: flex;
 	flex-direction: column;
+	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+		display: none;
+	}
 `
 
 export const HamburgerLine = styled.div`

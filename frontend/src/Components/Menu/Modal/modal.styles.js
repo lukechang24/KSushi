@@ -26,7 +26,7 @@ export const Overlay = styled.div`
 	position: fixed;
 	width: 100%;
 	height: 100%;
-	opacity: 0.25;
+	opacity: 0.15;
 	background-color: black;
 `
 
@@ -75,7 +75,7 @@ export const ModalImageContainer = styled.div`
   width: 100%;
   height: auto;
 	aspect-ratio: 1 / 1;
-	margin: 0 0 5px;
+	// margin: 0 0 5px;
 `
 
 
@@ -102,25 +102,26 @@ export const FullImage = styled.img`
 export const ModalName = styled.h2`
 	color: ${props => props.theme.colors.text};
 	font-weight: 600;
-	margin: 0 0 5px;
+	margin: 5px 0 0;
 `
 
 export const ModalPrice = styled.p`
 	color: #a1a1a1;
-	margin: 0 0 20px;
+	margin: 5px 0 0;
 `
 
 export const ModalDescription = styled.p`
 	color: #a1a1a1;
 	line-height: 25px;
 	white-space: pre-line;
-	margin: 0 0 5px;
+	margin: 20px 0 0;
 `
 
 export const ModalInfoContainer = styled.div`
 	display: flex;
 	align-items: center;
 	color: #a1a1a1;
+	margin: 5px 0 0;
 	& > *:not(:last-child)::after {
     content: "•";
     margin: 0 6px;

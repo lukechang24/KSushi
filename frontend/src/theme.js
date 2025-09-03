@@ -4,6 +4,7 @@ const theme = {
     accent: "hsl(0, 100%, 30%)",
     background: "#0e0e0e",
     text: "#fdfdfd",
+		hover: "#666"
   },
   fonts: {
     main: "'Montserrat', sans-serif",
@@ -15,6 +16,11 @@ const theme = {
       tablet: "25px",
       desktop: "50px",
     },
+		navbarPadding: {
+			mobile: "15px",
+			tablet: "20px",
+			desktop: "30px"
+		}
   },
   breakpoints: {
     mobile: "480px",

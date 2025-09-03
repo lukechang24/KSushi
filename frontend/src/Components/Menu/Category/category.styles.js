@@ -60,7 +60,7 @@ export const ItemList = styled(motion.div)`
 
 export const SubcategoryTitle = styled.h2`
 	position: ${props => props.sticky ? "fixed" : "relative"};
-	top: ${props => props.sticky ? "44px" : "0"};
+	top: ${props => props.sticky ? "54px" : "0"};
 	width: 100%;
 	font-size: 20px;
 	background-color: ${props => props.theme.colors.background};

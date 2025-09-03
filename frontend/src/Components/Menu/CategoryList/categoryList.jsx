@@ -5,7 +5,7 @@ import Modal from "../Modal/modal"
 import * as S from "./CategoryList.styles"
 
 const CategoryList = ({ data }) => {
-	const [activeTab, setActiveTab] = useState(null)
+	const [activeTab, setActiveTab] = useState(Object.keys(data)[0])
 	const [activeSub, setActiveSub] = useState("")
 	const [selectedItem, setSelectedItem] = useState(null)
 

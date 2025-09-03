@@ -5,14 +5,18 @@ import * as S from "./menu.styles"
 
 const Menu = ({ data, loading }) => {
 	return(
-		<S.MenuContainer>
+		<S.MenuContainer id="menu">
 			{loading 
 				?
 					"loading" 
 				:
-					<S.MenuList>
+					<S.Menu>
+						<S.MenuTitle>MENU</S.MenuTitle>
+						<S.CategoryIconContainer>
+							
+						</S.CategoryIconContainer>
 						<CategoryList data={data}/>
-					</S.MenuList>
+					</S.Menu>
 			}
 
 		</S.MenuContainer>

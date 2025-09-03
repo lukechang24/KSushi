@@ -9,6 +9,11 @@ const Navbar = () => {
 	return(
 		<S.NavbarContainer>
 			<S.NavbarLogo>K. SUSHI</S.NavbarLogo>
+			<S.NavLinkContainer>
+				<S.NavLink href="#menu">MENU</S.NavLink>
+				<S.NavLink href="#about">ABOUT US</S.NavLink>
+				<S.NavLink href="#contact">CONTACT</S.NavLink>
+			</S.NavLinkContainer>
 			<S.HamburgerContainer>
 				<S.HamburgerLine></S.HamburgerLine>
 				<S.HamburgerLine></S.HamburgerLine>

@@ -61,7 +61,6 @@ const Category = ({title, items, index, handleItemClick, closeModal, isOpen, han
 							return(
 								<React.Fragment key={subcategory}>
 									<S.SubcategoryTitle
-										key={subcategory}
 										ref={(el) => setSubRef(el, i)}
 										data-name={subcategory}
 										sticky={activeSub === subcategory}
