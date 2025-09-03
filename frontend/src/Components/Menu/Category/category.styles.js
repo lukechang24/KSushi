@@ -66,6 +66,9 @@ export const SubcategoryTitle = styled.h2`
 	background-color: ${props => props.theme.colors.background};
 	padding: ${props => props.sticky ? "7px 0 10px" : "7px 0 10px"};
 	box-shadow: ${props => props.sticky ? "none" : "none"};
+	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+		top: ${props => props.sticky ? "60px" : "0"};
+	}
 `
 
 export const InvisibleSpace = styled.h2`

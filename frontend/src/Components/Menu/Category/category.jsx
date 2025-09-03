@@ -38,15 +38,15 @@ const Category = ({title, items, index, handleItemClick, closeModal, isOpen, han
 					<S.RightCaret />
 				}
 			</S.AccordionContainer>
-			<AnimatePresence initial={false}>
+			<AnimatePresence initial={true}>
 				<S.ItemList
 					key={title}
-					initial={false}
+					initial={true}
 					animate={{
 						height: isOpen ? "auto" : 0,
 						opacity: isOpen ? 1 : 0,
 					}}
-					transition={{ duration: 0.25, ease: "easeIn" }}
+					transition={{ duration: 0.15, ease: "easeIn" }}
 					style={{ overflow: "hidden" }}
 					onAnimationComplete={() => {
 						if (!isOpen) return
@@ -74,6 +74,7 @@ const Category = ({title, items, index, handleItemClick, closeModal, isOpen, han
 							return(
 								<ItemCard 
 									data={item}
+									index={index}
 									handleItemClick={handleItemClick}
 								/>
 							)

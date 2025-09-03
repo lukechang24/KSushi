@@ -5,7 +5,7 @@ import * as S from "./homepage.styles"
 const Homepage = () => {
 	return(
 		<S.HomepageContainer>
-			homepage
+			<S.ViewMenuButton>VIEW MENU <S.DownArrow></S.DownArrow></S.ViewMenuButton>
 		</S.HomepageContainer>
 	)
 }

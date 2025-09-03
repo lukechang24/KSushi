@@ -13,6 +13,9 @@ export const NavbarContainer = styled.div`
 	padding: ${({ theme }) => theme.spacing.navbarPadding.mobile} ${({ theme }) => theme.spacing.pagePadding.mobile};
 	box-sizing: border-box;
 	z-index: 30;
+	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+		padding: ${({ theme }) => theme.spacing.navbarPadding.tablet} ${({ theme }) => theme.spacing.pagePadding.mobile};
+	}
 `
 
 export const NavbarLogo = styled.h3`

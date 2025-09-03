@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { IoIosArrowDown } from "react-icons/io";
 import backgroundImage from "../../Images/background.jpg"
 
 export const HomepageContainer = styled.div`
@@ -16,4 +17,19 @@ export const HomepageContainer = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+`
+
+export const ViewMenuButton = styled.button`
+	display: flex;
+	align-items: center;
+	background-color: transparent;
+	color: ${({ theme }) => theme.colors.text};
+	font-size: 22px;
+	padding: 10px;
+	border: 1px solid ${({ theme }) => theme.colors.text};
+	border-radius: 1.5px;
+`
+
+export const DownArrow = styled(IoIosArrowDown)`
+	margin-left: 5px;
 `

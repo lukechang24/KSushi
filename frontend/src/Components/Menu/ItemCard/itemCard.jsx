@@ -2,7 +2,11 @@ import React from "react"
 import { getMenuImageUrl } from "../../../helper"
 import * as S from "./itemCard.styles"
 
-const ItemCard = ({ data, handleItemClick }) => {
+const ItemCard = ({ data, index, handleItemClick }) => {
+	let pcs = ""
+	if (data.pcs && index !== 0 && index !== 1) {
+		pcs = `(${data.pcs}pcs)`
+	}
 	return(
 		<S.ItemContainer onClick={() => handleItemClick(data)}>
 			<S.ItemImage 
@@ -10,7 +14,7 @@ const ItemCard = ({ data, handleItemClick }) => {
 				loading="lazy"
 			/>
 			<S.ItemInfoContainer>
-				<S.ItemName>{data.name}</S.ItemName>
+				<S.ItemName>{data.name} {pcs}</S.ItemName>
 				<S.ItemPrice>${data.price}</S.ItemPrice>
 			</S.ItemInfoContainer>
 		</S.ItemContainer>
