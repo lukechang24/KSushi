@@ -1,10 +1,24 @@
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
+import { FaCircleNotch } from "react-icons/fa";
 
 export const MenuContainer = styled.div`
 	width: 100%;
 	min-height: 1000px;
 	max-width: 900px;
 	padding: 0 ${({ theme }) => theme.spacing.pagePadding.mobile};
+`
+
+
+const spin = keyframes`
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+`
+
+export const Spinner = styled(FaCircleNotch)`
+  font-size: 30px;
+	margin-top: 150px;
+  color: ${({ theme }) => theme.colors.text};
+  animation: ${spin} 1s linear infinite;
 `
 
 export const Menu = styled.div`

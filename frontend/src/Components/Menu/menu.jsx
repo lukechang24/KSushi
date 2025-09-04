@@ -5,7 +5,7 @@ import Modal from "./Modal/modal"
 import * as S from "./menu.styles"
 
 const Menu = ({ data, loading }) => {
-	const [activeTab, setActiveTab] = useState(data && Object.keys(data)[0])
+	const [activeTab, setActiveTab] = useState(null)
 	const [activeSub, setActiveSub] = useState("")
 	const [selectedItem, setSelectedItem] = useState(null)
 
@@ -55,6 +55,12 @@ const Menu = ({ data, loading }) => {
 	}
 
 	useEffect(() => {
+		if (!loading) {
+			setActiveTab(Object.keys(data)[0])
+		}
+	}, [loading])
+
+	useEffect(() => {
 		const handleScroll = () => {
 			const scrollPos = window.scrollY;
 			const scrollingDown = scrollPos > lastScrollY.current;
@@ -92,7 +98,10 @@ const Menu = ({ data, loading }) => {
 		<S.MenuContainer id="menu">
 			{loading 
 				?
-					"loading" 
+					<S.Menu>
+						<S.MenuTitle>MENU</S.MenuTitle>
+						<S.Spinner></S.Spinner>
+					</S.Menu>
 				:
 					<S.Menu>
 						<S.MenuTitle>MENU</S.MenuTitle>
