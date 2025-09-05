@@ -1,5 +1,12 @@
 import styled, { keyframes } from "styled-components"
-import { FaCircleNotch } from "react-icons/fa";
+import { FaCircleNotch } from "react-icons/fa"
+
+const fadeInOut = keyframes`
+	0% { opacity: 0; transform: translate(-50%, -50%) scale(0.95); }
+  10% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  80% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(0.95); }
+`
 
 export const MenuContainer = styled.div`
 	width: 100%;
@@ -7,7 +14,6 @@ export const MenuContainer = styled.div`
 	max-width: 900px;
 	padding: 0 ${({ theme }) => theme.spacing.pagePadding.mobile};
 `
-
 
 const spin = keyframes`
   from { transform: rotate(0deg); }
@@ -56,7 +62,7 @@ export const CategoryLink = styled.button`
 	border: none;
 `
 
-export const CategoryIcon = styled.div`
+export const CategoryIcon = styled.img`
 	width: 80px;
 	height: 80px;
 	background-color: white;
@@ -95,4 +101,17 @@ export const CategoryMarker = styled.button`
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		top: 74px;
 	}
+`
+
+export const MenuHint = styled.h3`
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: ${({ $show }) => $show ? "block" : "none"};
+	font-size: 30px;
+	font-weight: bolder;
+	text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+	animation: ${fadeInOut} 3s linear;
 `

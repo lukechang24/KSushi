@@ -3,6 +3,7 @@ import styled from "styled-components"
 export const ItemContainer = styled.li`
   list-style: none;
 	flex: 0 1 calc(50% - 2%);
+	cursor: pointer;
 	margin-bottom: 15px;
 
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
@@ -23,6 +24,8 @@ export const ItemImage = styled.img`
 	width: 100%;
   aspect-ratio: 4 / 3;
 	object-fit: cover;
+	object-position: center center;
+	border-radius: 3px;
 	// filter: brightness(90%);
 `
 

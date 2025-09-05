@@ -18,8 +18,11 @@ export const NavbarContainer = styled.div`
 	}
 `
 
-export const NavbarLogo = styled.h3`
-	// font-family: "Noto Serif JP", serif;
+export const NavbarLogo = styled.img`
+	width: 130px;
+	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+		// width: 140px;
+	}
 `
 
 export const NavLinkContainer = styled.div`

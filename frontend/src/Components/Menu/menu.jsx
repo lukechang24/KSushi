@@ -2,19 +2,31 @@ import React, { useState, useEffect, useRef } from "react"
 import Category from "./Category/category"
 import Modal from "./Modal/modal"
 
+// import salmon from "../../Images/salmon nigiri.jpg"
+import salmon from "../../Images/salmon sashimi.jpg"
+import cerritos from "../../Images/cerritos roll.jpg"
+import chicken from "../../Images/chicken bento.jpg"
+import spicy from "../../Images/spicy garlic edamame.jpg"
+import sprite from "../../Images/sprite.jpg"
+import sugar from "../../Images/sugar crisp delight.jpg"
+
 import * as S from "./menu.styles"
+
+const categoryUrl = [salmon, cerritos, chicken, spicy, sprite, sugar]
 
 const Menu = ({ data, loading }) => {
 	const [activeTab, setActiveTab] = useState(null)
 	const [activeSub, setActiveSub] = useState("")
 	const [selectedItem, setSelectedItem] = useState(null)
-
+	const [showHint, setShowHint] = useState(false)
+	
+	const triggeredHintRef = useState(false)
+	const menuRef = useRef()
 	const subRefs = useRef([])
 	const subOffsets = useRef([])
 	const lastScrollY = useRef(0)
 
 	const activeAccordionRef = useRef(null)
-	const prevAccordionTop = useRef(null)
 
 	const handleItemClick = (item) => {
 		setSelectedItem(item)
@@ -38,10 +50,6 @@ const Menu = ({ data, loading }) => {
 	}
 
 	const handleTab = (tabName) => {
-		if (activeAccordionRef.current) {
-			prevAccordionTop.current = activeAccordionRef.current.getBoundingClientRect().top + window.pageYOffset
-		}
-
 		if (activeTab === tabName) {
 			subRefs.current = []
 			subOffsets.current = []
@@ -62,11 +70,24 @@ const Menu = ({ data, loading }) => {
 
 	useEffect(() => {
 		const handleScroll = () => {
-			const scrollPos = window.scrollY;
-			const scrollingDown = scrollPos > lastScrollY.current;
-			lastScrollY.current = scrollPos;
+			const scrollPos = window.scrollY
+			const scrollingDown = scrollPos > lastScrollY.current
+			lastScrollY.current = scrollPos
+
+			const menuTop = menuRef.current && menuRef.current.offsetTop - 200
+			const scrollBottom = window.scrollY
 
 			if (!subOffsets.current.length) return;
+
+			if (!triggeredHintRef.current && scrollBottom >= menuTop) {
+				console.log(menuRef, "REF")
+				setShowHint(true)
+				triggeredHintRef.current = true
+				setTimeout(() => {
+					setShowHint(false)
+					console.log("now its false")
+				}, 3000)
+			}
 
 			if (scrollingDown) {
 				// Scroll down: last subcategory whose top <= scroll
@@ -103,10 +124,10 @@ const Menu = ({ data, loading }) => {
 						<S.Spinner></S.Spinner>
 					</S.Menu>
 				:
-					<S.Menu>
+					<S.Menu ref={menuRef}>
 						<S.MenuTitle>MENU</S.MenuTitle>
 						<S.CategoryLinkContainer>
-							{Object.keys(data).map(category => {
+							{Object.keys(data).map((category, i) => {
 								return(
 									<S.CategoryLink 
 										onClick={() => {
@@ -114,7 +135,7 @@ const Menu = ({ data, loading }) => {
 											setTimeout(() => scrollToAccordion(true), 350);
 										}}
 									>
-										<S.CategoryIcon></S.CategoryIcon>
+										<S.CategoryIcon src={categoryUrl[i]}></S.CategoryIcon>
 										<S.CategoryName>{category}</S.CategoryName>
 									</S.CategoryLink>
 								)})
@@ -151,6 +172,7 @@ const Menu = ({ data, loading }) => {
 						</S.CategoryList>
 					</S.Menu>
 			}
+			<S.MenuHint $show={showHint}>TAP ITEMS FOR MORE DETAIL</S.MenuHint>
 		</S.MenuContainer>
 	)
 }

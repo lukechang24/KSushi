@@ -46,7 +46,7 @@ const Category = ({title, items, index, handleItemClick, closeModal, isOpen, han
 						height: isOpen ? "auto" : 0,
 						opacity: isOpen ? 1 : 0,
 					}}
-					transition={{ duration: 0.2, ease: "easeIn" }}
+					transition={{ duration: 0.25 }}
 					style={{ overflow: "hidden" }}
 					onAnimationComplete={() => {
 						if (!isOpen) return

@@ -19,7 +19,7 @@ export const HomepageContainer = styled.div`
   text-align: center;
 `
 
-export const ViewMenuButton = styled.button`
+export const ViewMenuLink = styled.a`
 	display: flex;
 	align-items: center;
 	background-color: transparent;
@@ -28,6 +28,12 @@ export const ViewMenuButton = styled.button`
 	padding: 10px;
 	border: 1px solid ${({ theme }) => theme.colors.text};
 	border-radius: 1.5px;
+	text-decoration: none;
+	transition: 0.2s linear;
+	&:hover {
+		background-color: white;
+		color: ${({ theme }) => theme.colors.background};
+	}
 `
 
 export const DownArrow = styled(IoIosArrowDown)`

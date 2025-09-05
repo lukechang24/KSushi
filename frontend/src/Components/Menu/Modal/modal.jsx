@@ -42,7 +42,7 @@ const Modal = ({ data, closeModal }) => {
 				
 				{(data.pcs || data.spicy) &&
 					<S.ModalInfoContainer>
-						{data.pcs && <S.ModalPieceCount>{data.pcs} pc</S.ModalPieceCount>}
+						{data.pcs && <S.ModalPieceCount>{data.pcs}{data.pcs == 1 ? "pc" : "pcs"}</S.ModalPieceCount>}
 						{data.spicy && spiceLevel}
 					</S.ModalInfoContainer>
 				}
