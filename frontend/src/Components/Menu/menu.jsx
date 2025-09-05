@@ -131,8 +131,12 @@ const Menu = ({ data, loading }) => {
 								return(
 									<S.CategoryLink 
 										onClick={() => {
-											handleTab(category)
-											setTimeout(() => scrollToAccordion(true), 350);
+											if (activeTab !== category) {
+												handleTab(category)
+												setTimeout(() => scrollToAccordion(true), 350);
+											} else {
+												scrollToAccordion(true)
+											}
 										}}
 									>
 										<S.CategoryIcon src={categoryUrl[i]}></S.CategoryIcon>
