@@ -7,7 +7,7 @@ import * as S from "./category.styles"
 const Category = ({title, items, index, handleItemClick, closeModal, isOpen, handleTab, activeSub, subRefs, subOffsets, accordionRef, scrollToAccordion }) => {
 
 	const setSubRef = (el, i) => {
-		if (el &&  isOpen) {
+		if (el && isOpen) {
 			subRefs.current[i] = el
 		}
   }

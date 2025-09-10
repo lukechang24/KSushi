@@ -63,7 +63,8 @@ export const SubcategoryTitle = styled.h2`
 	top: ${props => props.sticky ? "54px" : "0"};
 	width: 100%;
 	font-size: 20px;
-	background-color: ${props => props.theme.colors.background};
+	background-color: ${({ theme }) => theme.colors.background};
+	color: ${({ theme }) => theme.colors.text};
 	padding: ${props => props.sticky ? "7px 0 10px" : "7px 0 10px"};
 	box-shadow: ${props => props.sticky ? "none" : "none"};
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
@@ -75,6 +76,6 @@ export const InvisibleSpace = styled.h2`
 	width: 100%;
 	font-size: 20px;
 	margin: 5px 0 10px;
-	color: ${props => props.theme.colors.background};
+	color: ${({ theme }) => theme.colors.background};
 	display: ${props => props.show ? "block" : "none"};
 `

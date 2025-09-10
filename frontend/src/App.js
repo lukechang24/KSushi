@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react"
+import { ThemeProvider, createGlobalStyle } from "styled-components"
+import styled from "styled-components"
 import axios from "axios"
 
 import Navbar from "./Components/Navbar/navbar"
 import Homepage from "./Components/Homepage/homepage";
 import Menu from "./Components/Menu/menu"
-import { ThemeProvider, createGlobalStyle } from "styled-components";
+import About from "./Components/About/about"
 import theme from "./theme"
-// import Rolls from "./Components/Rolls";
 
 const GlobalStyle = createGlobalStyle`
 	*, *::before, *::after {
@@ -33,7 +34,15 @@ const GlobalStyle = createGlobalStyle`
 		flex-direction: column;
 		align-items: center;
 	}
-`;
+`
+
+const LineBreak = styled.hr`
+	width: 100%;
+	border: none;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 125px 0;
+`
 
 const App = () => {
 	const [data, setData] = useState(null)
@@ -60,6 +69,8 @@ const App = () => {
 				<Navbar />
 				<Homepage />
 				<Menu data={data} loading={loading}/>
+				<LineBreak />
+				<About />
 			</ThemeProvider>
 		</>
   )

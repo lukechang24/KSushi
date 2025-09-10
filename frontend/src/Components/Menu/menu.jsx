@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useLayoutEffect, useRef } from "react"
 import Category from "./Category/category"
 import Modal from "./Modal/modal"
 
@@ -74,19 +74,17 @@ const Menu = ({ data, loading }) => {
 			const scrollingDown = scrollPos > lastScrollY.current
 			lastScrollY.current = scrollPos
 
-			const menuTop = menuRef.current && menuRef.current.offsetTop - 200
+			const menuTop = menuRef.current && menuRef.current.offsetTop - 100
 			const scrollBottom = window.scrollY
 
 			if (!subOffsets.current.length) return;
 
 			if (!triggeredHintRef.current && scrollBottom >= menuTop) {
-				console.log(menuRef, "REF")
 				setShowHint(true)
 				triggeredHintRef.current = true
 				setTimeout(() => {
 					setShowHint(false)
-					console.log("now its false")
-				}, 3000)
+				}, 2000)
 			}
 
 			if (scrollingDown) {
@@ -114,6 +112,19 @@ const Menu = ({ data, loading }) => {
 		window.addEventListener("scroll", handleScroll)
 		return () => window.removeEventListener("scroll", handleScroll)
 	}, [])
+
+	useLayoutEffect(() => {
+  const calculateOffsets = () => {
+    subRefs.current.forEach((ref, i) => {
+      subOffsets.current[i] = ref.offsetTop
+    })
+  }
+
+  calculateOffsets()
+
+  window.addEventListener("resize", calculateOffsets)
+  return () => window.removeEventListener("resize", calculateOffsets)
+}, [])
 
 	return(
 		<S.MenuContainer id="menu">
@@ -176,7 +187,7 @@ const Menu = ({ data, loading }) => {
 						</S.CategoryList>
 					</S.Menu>
 			}
-			<S.MenuHint $show={showHint}>TAP ITEMS FOR MORE DETAIL</S.MenuHint>
+			<S.MenuHint $show={showHint}>Tap for more details</S.MenuHint>
 		</S.MenuContainer>
 	)
 }

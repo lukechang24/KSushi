@@ -26,7 +26,7 @@ export const Overlay = styled.div`
 	position: fixed;
 	width: 100%;
 	height: 100%;
-	opacity: 0.15;
+	opacity: 0.5;
 	background-color: black;
 `
 
@@ -35,7 +35,7 @@ export const Modal = styled.div`
 	position: fixed;
 	display: flex;
 	flex-direction: column;
-	background-color: ${props => props.theme.colors.background};
+	background-color: #111;
 	z-index: 50;
 	margin: 0 10px;
 	padding: 30px;
@@ -100,27 +100,37 @@ export const FullImage = styled.img`
 `
 
 export const ModalName = styled.h2`
-	color: ${props => props.theme.colors.text};
+	color: ${({ theme }) => theme.colors.text};
 	font-weight: 600;
 	margin: 5px 0 0;
 `
 
 export const ModalPrice = styled.p`
-	color: #a1a1a1;
+	color: ${({ theme }) => theme.colors.primary};
+	font-weight: 600;
 	margin: 5px 0 0;
 `
 
-export const ModalDescription = styled.p`
-	color: #a1a1a1;
-	line-height: 25px;
-	white-space: pre-line;
-	margin: 20px 0 0;
+export const ModalInfoContainer = styled.div`
+	margin: 15px 0 0;
 `
 
-export const ModalInfoContainer = styled.div`
+export const ModalDescription = styled.p`
+	color: ${({ theme }) => theme.colors.textSecondary};
+	font-weight: 300;
+	line-height: 20px;
+	white-space: pre-line;
+`
+
+export const Bold = styled.span`
+	font-weight: 800;
+	margin-right: 3px;
+`
+
+export const ModalExtraContainer = styled.div`
 	display: flex;
 	align-items: center;
-	color: #a1a1a1;
+	color: ${({ theme }) => theme.colors.textSecondary};
 	margin: 5px 0 0;
 	& > *:not(:last-child)::after {
     content: "•";
@@ -130,6 +140,7 @@ export const ModalInfoContainer = styled.div`
 `
 
 export const ModalPieceCount = styled.p`
+	font-weight: 300;
 `
 
 export const SpiceLevel = styled(FaPepperHot)`

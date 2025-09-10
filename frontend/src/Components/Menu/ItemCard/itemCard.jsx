@@ -1,4 +1,3 @@
-import React from "react"
 import { getMenuImageUrl } from "../../../helper"
 import * as S from "./itemCard.styles"
 

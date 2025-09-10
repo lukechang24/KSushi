@@ -1,9 +1,10 @@
 const theme = {
 	colors: {
-    primary: "#0C1821",
+    primary: "#F0A500",
     accent: "hsl(0, 100%, 30%)",
     background: "#0e0e0e",
-    text: "#fdfdfd",
+    text: "#F5F5F5",
+		textSecondary: "#CCC",
 		hover: "#666"
   },
   fonts: {

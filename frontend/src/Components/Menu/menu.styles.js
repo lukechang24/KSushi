@@ -52,7 +52,6 @@ export const CategoryLinkContainer = styled.div`
 `
 
 export const CategoryLink = styled.button`
-	// width: 100px;
 	display: flex;
 	flex: 0 1 calc(31.4%);
 	flex-direction: column;
@@ -60,6 +59,7 @@ export const CategoryLink = styled.button`
 	background-color: transparent;
 	color: ${props => props.theme.colors.text};
 	border: none;
+	cursor: pointer;
 `
 
 export const CategoryIcon = styled.img`
@@ -93,13 +93,18 @@ export const CategoryMarker = styled.button`
 	font-family: ${props => props.theme.fonts.heading};
 	position: fixed;
 	top: 64px;
+	width: 150px;
 	background-color: transparent;
 	color: white;
-	right: ${({ theme }) => theme.spacing.pagePadding.mobile};
+	text-align: right;
+	right: ${({ theme }) => `calc(${theme.spacing.pagePadding.mobile})`};
 	border: 0;
 	z-index: 6;
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		top: 74px;
+	}
+	@media (min-width: 900px) {
+		display: none;
 	}
 `
 
@@ -110,8 +115,8 @@ export const MenuHint = styled.h3`
 	transform: translate(-50%, -50%);
 	display: ${({ $show }) => $show ? "block" : "none"};
 	font-size: 30px;
-	font-weight: bolder;
+	font-weight: lighter;
 	text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-	animation: ${fadeInOut} 3s linear;
+	animation: ${fadeInOut} 2s linear;
 `
