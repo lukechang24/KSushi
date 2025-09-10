@@ -10,7 +10,6 @@ const fadeInOut = keyframes`
 
 export const MenuContainer = styled.div`
 	width: 100%;
-	min-height: 1000px;
 	max-width: 900px;
 	padding: 0 ${({ theme }) => theme.spacing.pagePadding.mobile};
 `
@@ -31,15 +30,15 @@ export const Menu = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	color: ${props => props.theme.colors.text};
+	color: ${({ theme }) => theme.colors.text};
 `
 
 export const MenuTitle = styled.h1`
-	color: ${props => props.theme.colors.text};
+	color: ${({ theme }) => theme.colors.text};
 	text-align: center;
-	padding: 3px 5px;
-	border-top: 1px solid white;	
-	border-bottom: 1px solid white;	
+	padding: 5px;
+	border-top: 1px solid ${({ theme }) => theme.colors.primary};
+	border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
 	margin: 64px 0 20px;
 `
 
@@ -77,7 +76,6 @@ export const CategoryName = styled.h3`
 	font-size: 12px;
 	text-align: center;
 	margin-top: 10px;
-
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		font-size: 16px;
 	}
@@ -95,7 +93,7 @@ export const CategoryMarker = styled.button`
 	top: 64px;
 	width: 150px;
 	background-color: transparent;
-	color: white;
+	color: ${({ theme }) => theme.colors.text};
 	text-align: right;
 	right: ${({ theme }) => `calc(${theme.spacing.pagePadding.mobile})`};
 	border: 0;
@@ -118,5 +116,5 @@ export const MenuHint = styled.h3`
 	font-weight: lighter;
 	text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-	animation: ${fadeInOut} 2s linear;
+	animation: ${fadeInOut} 3s linear;
 `

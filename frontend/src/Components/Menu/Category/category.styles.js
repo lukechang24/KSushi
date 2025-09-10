@@ -21,7 +21,7 @@ export const AccordionContainer = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
-	border-bottom: 1px solid ${props => props.theme.colors.text};
+	border-bottom: 1px solid ${props => props.theme.colors.primary};
 	margin: 0 0 10px;
 	transition: all 0.25s ease-in-out;
 `
@@ -55,12 +55,11 @@ export const ItemList = styled(motion.div)`
 	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
 		gap: 25px 2%;
 	}
-	// margin-top: ${props => props.setMargin ? "10px" : "0"};
 `
 
 export const SubcategoryTitle = styled.h2`
-	position: ${props => props.sticky ? "fixed" : "relative"};
-	top: ${props => props.sticky ? "54px" : "0"};
+	position: ${props => props.$sticky ? "fixed" : "relative"};
+	top: ${props => props.$sticky ? "54px" : "0"};
 	width: 100%;
 	font-size: 20px;
 	background-color: ${({ theme }) => theme.colors.background};
@@ -77,5 +76,5 @@ export const InvisibleSpace = styled.h2`
 	font-size: 20px;
 	margin: 5px 0 10px;
 	color: ${({ theme }) => theme.colors.background};
-	display: ${props => props.show ? "block" : "none"};
+	display: ${props => props.$show ? "block" : "none"};
 `

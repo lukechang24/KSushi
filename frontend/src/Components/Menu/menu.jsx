@@ -43,7 +43,7 @@ const Menu = ({ data, loading }) => {
 				return
 			}
 			window.scrollTo({
-				top: absoluteTop - 60, // Scroll to the top of the page
+				top: absoluteTop - 120, // Scroll to the top of the page
 				behavior: 'smooth' // Optional: for smooth scrolling animation
 			})
 		}
@@ -77,14 +77,19 @@ const Menu = ({ data, loading }) => {
 			const menuTop = menuRef.current && menuRef.current.offsetTop - 100
 			const scrollBottom = window.scrollY
 
-			if (!subOffsets.current.length) return;
+			if (menuRef.current && (scrollPos > menuRef.current.offsetTop + menuRef.current.offsetHeight - 180)) {
+				setActiveSub(null)
+				return
+			}
+
+			if (!subOffsets.current.length) return
 
 			if (!triggeredHintRef.current && scrollBottom >= menuTop) {
 				setShowHint(true)
 				triggeredHintRef.current = true
 				setTimeout(() => {
 					setShowHint(false)
-				}, 2000)
+				}, 3000)
 			}
 
 			if (scrollingDown) {
@@ -140,7 +145,8 @@ const Menu = ({ data, loading }) => {
 						<S.CategoryLinkContainer>
 							{Object.keys(data).map((category, i) => {
 								return(
-									<S.CategoryLink 
+									<S.CategoryLink
+										key={i}
 										onClick={() => {
 											if (activeTab !== category) {
 												handleTab(category)

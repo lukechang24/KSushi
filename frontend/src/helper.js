@@ -1,5 +1,5 @@
 export const getMenuImageUrl = (url, size) => {
-  if (!url) return "";
+  if (!url) return null;
 
   if (size) {
     // Remove query params first

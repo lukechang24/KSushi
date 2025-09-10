@@ -31,7 +31,7 @@ export const ViewMenuLink = styled.a`
 	text-decoration: none;
 	transition: 0.2s linear;
 	&:hover {
-		background-color: white;
+		background-color: ${({ theme }) => theme.colors.text};
 		color: ${({ theme }) => theme.colors.background};
 	}
 `

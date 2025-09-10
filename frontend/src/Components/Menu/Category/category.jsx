@@ -29,7 +29,6 @@ const Category = ({title, items, index, handleItemClick, closeModal, isOpen, han
 			<S.AccordionContainer
 				onClick={() => handleTab(title, index)}
 				ref={(el) => setAccordionRef(el)}
-				active={isOpen}
 			>
 				<S.AccordionTitle>{title}</S.AccordionTitle>
 				{isOpen ?
@@ -38,22 +37,21 @@ const Category = ({title, items, index, handleItemClick, closeModal, isOpen, han
 					<S.RightCaret />
 				}
 			</S.AccordionContainer>
-			<AnimatePresence initial={true}>
+			<AnimatePresence initial={false}>
 				<S.ItemList
 					key={title}
-					initial={true}
+					initial={false}
 					animate={{
 						height: isOpen ? "auto" : 0,
 						opacity: isOpen ? 1 : 0,
 					}}
-					transition={{ duration: 0.25 }}
+					transition={{ duration: 0.235 }}
 					style={{ overflow: "hidden" }}
 					onAnimationComplete={() => {
 						if (!isOpen) return
 						populateSubRefOffset()
 						scrollToAccordion()
 					}}
-					setMargin={isOpen}
 				>
 					{items.map((item, i) => {
 						if (item.name.indexOf("Title") === 0) {
@@ -63,16 +61,17 @@ const Category = ({title, items, index, handleItemClick, closeModal, isOpen, han
 									<S.SubcategoryTitle
 										ref={(el) => setSubRef(el, i)}
 										data-name={subcategory}
-										sticky={activeSub === subcategory}
+										$sticky={activeSub === subcategory}
 									>
 										{subcategory.toUpperCase()}
 									</S.SubcategoryTitle>
-									<S.InvisibleSpace show={activeSub === subcategory}>X</S.InvisibleSpace>
+									<S.InvisibleSpace $show={activeSub === subcategory}>X</S.InvisibleSpace>
 								</React.Fragment>
 							)
 						} else {
 							return(
 								<ItemCard 
+									key={i}
 									data={item}
 									index={index}
 									handleItemClick={handleItemClick}

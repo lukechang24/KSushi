@@ -10,13 +10,17 @@ export const AboutContainer = styled.div`
 
 export const AboutTitle = styled.h1`
 	color: ${({ theme }) => theme.colors.text};
+	padding: 5px;
+	border-top: 1px solid ${({ theme }) => theme.colors.primary};
+	border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
 	margin-bottom: 30px;
 `
 
 export const AboutDescription = styled.p`
 	width: 80%;
 	color: ${({ theme }) => theme.colors.textSecondary};
-	text-align: center;
+  text-align: justify;
 	line-height: 25px;
 	margin-bottom: 30px;
+	white-space: pre-wrap;
 `

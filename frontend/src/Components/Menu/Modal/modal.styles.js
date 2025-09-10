@@ -112,6 +112,9 @@ export const ModalPrice = styled.p`
 `
 
 export const ModalInfoContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 10px 0;
 	margin: 15px 0 0;
 `
 
@@ -131,7 +134,6 @@ export const ModalExtraContainer = styled.div`
 	display: flex;
 	align-items: center;
 	color: ${({ theme }) => theme.colors.textSecondary};
-	margin: 5px 0 0;
 	& > *:not(:last-child)::after {
     content: "•";
     margin: 0 6px;

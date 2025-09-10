@@ -1,4 +1,14 @@
-import styled from "styled-components"
+import styled, { keyframes, css } from "styled-components"
+
+const slideIn = keyframes`
+	0% { right: -100vw; }
+	100% { right: 0; }
+`
+
+const slideOut = keyframes`
+	0% { right: 0; }
+	100% { right: -100vw; }
+`
 
 export const NavbarContainer = styled.div`
 	position: fixed;
@@ -37,6 +47,7 @@ export const NavLink = styled.a`
   color: ${({ theme }) => theme.colors.text};
   font-weight: 500;
   font-size: 16px;
+	text-align: center;
 	margin-left: 25px;
   cursor: pointer;
   transition: color 0.2s ease;
@@ -45,18 +56,39 @@ export const NavLink = styled.a`
   }
 `
 
-export const HamburgerContainer = styled.div`
+export const SideNavContainer = styled.div`
+	display: flex;
+	justify-content: flex-end;
+	position: fixed;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	visibility: ${({ $open }) => $open ? "visible" : "hidden"};
+	animation: ${({ $open }) =>
+    $open
+      ? css`${slideIn} 0.3s forwards`
+      : css`${slideOut} 0.5s forwards`};
+`
+
+export const SideNav = styled.div`
 	display: flex;
 	flex-direction: column;
-	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
-		display: none;
-	}
+	gap: 30px 0;
+	width: 70%;
+	height: 100%;
+	background-color: ${({ theme }) => theme.colors.background};
+	padding: 15px;
+	z-index: 51;
 `
 
-export const HamburgerLine = styled.div`
-	width: 25px;
-	height: 2px;
-	margin: 3px 0;
-	background-color: white;
+export const Overlay = styled.div`
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	opacity: 0.5;
+	background-color: black;
+	animation: ${({ $open }) =>
+    $open
+      ? css`${slideIn} 0s forwards`
+      : css`${slideOut} 0s forwards`};
 `
-
