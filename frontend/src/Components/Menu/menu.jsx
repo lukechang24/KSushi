@@ -3,16 +3,16 @@ import Category from "./Category/category"
 import Modal from "./Modal/modal"
 
 // import salmon from "../../Images/salmon nigiri.jpg"
-import salmon from "../../Images/salmon sashimi.jpg"
-import cerritos from "../../Images/cerritos roll.jpg"
+import salmon from "../../Images/salmon nigiri.jpg"
+import tuna from "../../Images/tuna lovers roll.jpg"
 import chicken from "../../Images/chicken bento.jpg"
-import spicy from "../../Images/spicy garlic edamame.jpg"
-import sprite from "../../Images/sprite.jpg"
-import sugar from "../../Images/sugar crisp delight.jpg"
+import gyoza from "../../Images/gyoza.jpg"
+import yuzu from "../../Images/yuzu mule.jpg"
+import tempura from "../../Images/tempura ice cream.jpg"
 
 import * as S from "./menu.styles"
 
-const categoryUrl = [salmon, cerritos, chicken, spicy, sprite, sugar]
+const categoryUrl = [salmon, tuna, chicken, gyoza, yuzu, tempura]
 
 const Menu = ({ data, loading }) => {
 	const [activeTab, setActiveTab] = useState(null)
