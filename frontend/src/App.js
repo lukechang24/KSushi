@@ -24,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: ${props => props.theme.fonts.heading};
+    font-family: ${props => props.theme.fonts.main};
     background-color: ${props => props.theme.colors.background};
     color: ${props => props.theme.colors.text};
   }
@@ -41,10 +41,12 @@ const LineBreak = styled.hr`
 	border: none;
   height: 2px;
   background-color: rgba(255, 255, 255, 0.2);
-  margin: 125px 0;
+  margin-bottom: ${({ $bottom }) => $bottom && "125px"};
+	margin-top: ${({ $top }) => $top && "125px"};
 `
 
 const App = () => {
+	const [resizeKey, setResizeKey] = useState(0)
 	const [data, setData] = useState(null)
 	const [loading, setLoading] = useState(true)
 
@@ -60,14 +62,25 @@ const App = () => {
 				console.error(err);
 				// setError("Failed to fetch menu data");
 			})
+
+		const handleResize = () => {
+			if (window.innerWidth >= 768) {
+				console.log("running")
+				setResizeKey(prev => prev + 1)
+			}
+		}
+
+		window.addEventListener("resize", handleResize)
+  	return () => window.removeEventListener("resize", handleResize)
 	}, [])
 
   return (
 		<>
-			<ThemeProvider theme={theme}>
+			<ThemeProvider key={resizeKey} theme={theme}>
 				<GlobalStyle />
 				<Navbar />
 				<Homepage />
+				<LineBreak />
 				<Menu data={data} loading={loading}/>
 				<LineBreak />
 				<About />

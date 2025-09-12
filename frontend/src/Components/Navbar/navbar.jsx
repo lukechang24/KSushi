@@ -22,17 +22,18 @@ const Navbar = () => {
 			/>
 			<S.SideNavContainer $open={showNav}>
 				<S.SideNav $open={showNav}>
+					<S.NavbarLogo src={logo} $sideNav></S.NavbarLogo>
 					<Hamburger
 						open={showNav}
 						setShowNav={setShowNav}
 					/>
-					<S.NavLink href="#menu" onClick={() => setShowNav(false)}>
+					<S.NavLink href="#menu" $sideNav onClick={() => setShowNav(false)}>
 						MENU
 					</S.NavLink>
-					<S.NavLink href="#about" onClick={() => setShowNav(false)}>
+					<S.NavLink href="#about" $sideNav onClick={() => setShowNav(false)}>
 						ABOUT US
 					</S.NavLink>
-					<S.NavLink href="#contact" onClick={() => setShowNav(false)}>
+					<S.NavLink href="#contact" $sideNav onClick={() => setShowNav(false)}>
 						CONTACT
 					</S.NavLink>
 				</S.SideNav>

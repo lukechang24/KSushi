@@ -15,7 +15,7 @@ const Modal = ({ data, closeModal }) => {
 	const spiceLevel = []
 	if (data.spicy) {
 		for (let i = 0; i < data.spicy; i++) {
-			spiceLevel.push(<S.SpiceLevel></S.SpiceLevel>)
+			spiceLevel.push(<S.SpiceLevel key={i}></S.SpiceLevel>)
 		}
 	}
 	const formatInOut = (desc) => {

@@ -27,6 +27,7 @@ export const AccordionContainer = styled.div`
 `
 
 export const AccordionTitle = styled.div`
+	// color: ${({ $active, theme }) => $active ? `${theme.colors.primary}` : `${theme.colors.text}`};
 	font-size: 18px;
 	padding: 10px;
 `
@@ -37,6 +38,7 @@ export const RightCaret = styled(RxCaretRight)`
 `
 
 export const DownCaret = styled(RxCaretDown)`
+	// color: ${({ theme }) => theme.colors.primary};
 	font-size: 25px;
 	font-weight: lighter;
 	margin-right: 10px;
@@ -64,10 +66,10 @@ export const SubcategoryTitle = styled.h2`
 	font-size: 20px;
 	background-color: ${({ theme }) => theme.colors.background};
 	color: ${({ theme }) => theme.colors.text};
-	padding: ${props => props.sticky ? "7px 0 10px" : "7px 0 10px"};
-	box-shadow: ${props => props.sticky ? "none" : "none"};
+	padding: ${props => props.$sticky ? "7px 0 10px" : "7px 0 10px"};
+	box-shadow: ${props => props.$sticky ? "none" : "none"};
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
-		top: ${props => props.sticky ? "60px" : "0"};
+		top: ${props => props.$sticky ? "60px" : "0"};
 	}
 `
 

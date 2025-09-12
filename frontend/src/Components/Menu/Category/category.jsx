@@ -30,7 +30,7 @@ const Category = ({title, items, index, handleItemClick, closeModal, isOpen, han
 				onClick={() => handleTab(title, index)}
 				ref={(el) => setAccordionRef(el)}
 			>
-				<S.AccordionTitle>{title}</S.AccordionTitle>
+				<S.AccordionTitle $active={isOpen}>{title}</S.AccordionTitle>
 				{isOpen ?
 					<S.DownCaret />
 				:
@@ -55,7 +55,12 @@ const Category = ({title, items, index, handleItemClick, closeModal, isOpen, han
 				>
 					{items.map((item, i) => {
 						if (item.name.indexOf("Title") === 0) {
-							const subcategory = item.name.split("Title ")[1]
+							let subcategory = item.name.split("Title ")[1]
+							if (subcategory.split("(")[1]) {
+								subcategory = subcategory.split("(")[0].toUpperCase() + "(" + subcategory.split("(")[1]
+							} else {
+								subcategory = subcategory.toUpperCase()
+							}
 							return(
 								<React.Fragment key={subcategory}>
 									<S.SubcategoryTitle
@@ -63,7 +68,7 @@ const Category = ({title, items, index, handleItemClick, closeModal, isOpen, han
 										data-name={subcategory}
 										$sticky={activeSub === subcategory}
 									>
-										{subcategory.toUpperCase()}
+										{subcategory}
 									</S.SubcategoryTitle>
 									<S.InvisibleSpace $show={activeSub === subcategory}>X</S.InvisibleSpace>
 								</React.Fragment>

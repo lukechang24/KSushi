@@ -13,13 +13,13 @@ export const AboutTitle = styled.h1`
 	padding: 5px;
 	border-top: 1px solid ${({ theme }) => theme.colors.primary};
 	border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
-	margin-bottom: 30px;
+	margin: 80px 0 40px;
 `
 
 export const AboutDescription = styled.p`
 	width: 80%;
 	color: ${({ theme }) => theme.colors.textSecondary};
-  text-align: justify;
+  text-align: center;
 	line-height: 25px;
 	margin-bottom: 30px;
 	white-space: pre-wrap;

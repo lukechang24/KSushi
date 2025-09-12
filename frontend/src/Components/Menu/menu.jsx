@@ -77,13 +77,6 @@ const Menu = ({ data, loading }) => {
 			const menuTop = menuRef.current && menuRef.current.offsetTop - 100
 			const scrollBottom = window.scrollY
 
-			if (menuRef.current && (scrollPos > menuRef.current.offsetTop + menuRef.current.offsetHeight - 180)) {
-				setActiveSub(null)
-				return
-			}
-
-			if (!subOffsets.current.length) return
-
 			if (!triggeredHintRef.current && scrollBottom >= menuTop) {
 				setShowHint(true)
 				triggeredHintRef.current = true
@@ -91,6 +84,13 @@ const Menu = ({ data, loading }) => {
 					setShowHint(false)
 				}, 3000)
 			}
+
+			if (menuRef.current && (scrollPos > menuRef.current.offsetTop + menuRef.current.offsetHeight - 180)) {
+				setActiveSub(null)
+				return
+			}
+
+			if (!subOffsets.current.length) return
 
 			if (scrollingDown) {
 				// Scroll down: last subcategory whose top <= scroll
@@ -119,17 +119,19 @@ const Menu = ({ data, loading }) => {
 	}, [])
 
 	useLayoutEffect(() => {
-  const calculateOffsets = () => {
-    subRefs.current.forEach((ref, i) => {
-      subOffsets.current[i] = ref.offsetTop
-    })
+  const resetAccordions = () => {
+    // subRefs.current.forEach((ref, i) => {
+    //   subOffsets.current[i] = ref.offsetTop
+    // })
+		// console.log(subRefs.current, "SUBREFS")
+		// console.log(subOffsets.current, "THIS")
+		setActiveTab(null)
+		setActiveSub(null)
   }
-
-  calculateOffsets()
-
-  window.addEventListener("resize", calculateOffsets)
-  return () => window.removeEventListener("resize", calculateOffsets)
-}, [])
+	
+  window.addEventListener("resize", resetAccordions)
+  return () => window.removeEventListener("resize", resetAccordions)
+	}, [])
 
 	return(
 		<S.MenuContainer id="menu">
@@ -144,6 +146,7 @@ const Menu = ({ data, loading }) => {
 						<S.MenuTitle>MENU</S.MenuTitle>
 						<S.CategoryLinkContainer>
 							{Object.keys(data).map((category, i) => {
+								if (i === 0) return
 								return(
 									<S.CategoryLink
 										key={i}
@@ -156,8 +159,8 @@ const Menu = ({ data, loading }) => {
 											}
 										}}
 									>
-										<S.CategoryIcon src={categoryUrl[i]}></S.CategoryIcon>
-										<S.CategoryName>{category}</S.CategoryName>
+										<S.CategoryLinkIcon src={categoryUrl[i - 1]}></S.CategoryLinkIcon>
+										<S.CategoryLinkName>{category}</S.CategoryLinkName>
 									</S.CategoryLink>
 								)})
 							}

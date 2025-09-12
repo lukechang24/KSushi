@@ -9,7 +9,8 @@ const theme = {
   },
   fonts: {
     main: "'Montserrat', sans-serif",
-		heading: "'Archivo', sans-serif"
+		heading: "'Archivo', sans-serif",
+		secondary: "'DM Sans', sans-serif"
   },
   spacing: {
     pagePadding: {

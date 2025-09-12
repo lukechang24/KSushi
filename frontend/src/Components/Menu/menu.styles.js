@@ -12,6 +12,7 @@ export const MenuContainer = styled.div`
 	width: 100%;
 	max-width: 900px;
 	padding: 0 ${({ theme }) => theme.spacing.pagePadding.mobile};
+	margin: 0 0 125px;
 `
 
 const spin = keyframes`
@@ -61,7 +62,7 @@ export const CategoryLink = styled.button`
 	cursor: pointer;
 `
 
-export const CategoryIcon = styled.img`
+export const CategoryLinkIcon = styled.img`
 	width: 80px;
 	height: 80px;
 	background-color: white;
@@ -72,7 +73,8 @@ export const CategoryIcon = styled.img`
 	}
 `
 
-export const CategoryName = styled.h3`
+export const CategoryLinkName = styled.h3`
+	font-family: ${props => props.theme.fonts.main};
 	font-size: 12px;
 	text-align: center;
 	margin-top: 10px;
@@ -88,10 +90,10 @@ export const CategoryList = styled.div`
 `
 
 export const CategoryMarker = styled.button`
-	font-family: ${props => props.theme.fonts.heading};
+	font-family: ${props => props.theme.fonts.secondary};
 	position: fixed;
-	top: 64px;
-	width: 150px;
+	top: 66px;
+	width: 120px;
 	background-color: transparent;
 	color: ${({ theme }) => theme.colors.text};
 	text-align: right;
@@ -100,6 +102,7 @@ export const CategoryMarker = styled.button`
 	z-index: 6;
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		top: 74px;
+		width: auto;
 	}
 	@media (min-width: 900px) {
 		display: none;
@@ -113,7 +116,7 @@ export const MenuHint = styled.h3`
 	transform: translate(-50%, -50%);
 	display: ${({ $show }) => $show ? "block" : "none"};
 	font-size: 30px;
-	font-weight: lighter;
+	font-weight: 300;
 	text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 	animation: ${fadeInOut} 3s linear;

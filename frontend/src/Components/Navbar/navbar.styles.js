@@ -30,6 +30,9 @@ export const NavbarContainer = styled.div`
 
 export const NavbarLogo = styled.img`
 	width: 130px;
+	position: ${({ $sideNav }) => $sideNav && "absolute"};
+	left: 45%;
+	transform: ${({ $sideNav }) => $sideNav && "translateX(-50%)"};
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		// width: 140px;
 	}
@@ -48,7 +51,7 @@ export const NavLink = styled.a`
   font-weight: 500;
   font-size: 16px;
 	text-align: center;
-	margin-left: 25px;
+	margin-left: ${({ $sideNav }) => !$sideNav && "25px"};
   cursor: pointer;
   transition: color 0.2s ease;
   &:hover {
@@ -71,6 +74,7 @@ export const SideNavContainer = styled.div`
 `
 
 export const SideNav = styled.div`
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	gap: 30px 0;

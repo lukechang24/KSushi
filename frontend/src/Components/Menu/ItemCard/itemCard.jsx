@@ -3,7 +3,7 @@ import * as S from "./itemCard.styles"
 
 const ItemCard = ({ data, index, handleItemClick }) => {
 	let pcs = ""
-	if (data.pcs && index !== 0 && index !== 1) {
+	if (data.pcs) {
 		pcs = `(${data.pcs}pcs)`
 	}
 	return(
