@@ -2,7 +2,7 @@ import styled from "styled-components"
 import { IoIosArrowDown } from "react-icons/io";
 import backgroundImage from "../../Images/background.jpg"
 
-export const HomepageContainer = styled.div`
+export const HomepageSection = styled.div`
 	width: 100vw;
   min-height: calc(100vh - 100px);
   background-image: linear-gradient(
@@ -24,8 +24,8 @@ export const ViewMenuLink = styled.a`
 	align-items: center;
 	background-color: transparent;
 	color: ${({ theme }) => theme.colors.text};
-	font-size: 22px;
-	padding: 10px;
+	font-size: 1.25rem;
+	padding: 0.75em;
 	border: 1px solid ${({ theme }) => theme.colors.text};
 	border-radius: 1.5px;
 	text-decoration: none;

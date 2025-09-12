@@ -37,6 +37,12 @@ export const ItemInfoContainer = styled.div`
 
 export const ItemName = styled.h3`
 	font-size: 14px;
+	white-space: pre-line;
+`
+
+export const SmallText = styled.p`
+	font-size: 12px;
+	// white-space: pre-line;
 `
 
 export const ItemPrice = styled.p`

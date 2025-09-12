@@ -21,11 +21,9 @@ const Modal = ({ data, closeModal }) => {
 	const formatInOut = (desc) => {
 		if (!desc) return null
 
-		// Split by "In:" and "Out:", keeping the labels
 		const parts = desc.split(/(In: |Out: )/).filter(Boolean)
 
 		return parts.map((part, i) => {
-			// Wrap the labels in <S.Bold>
 			if (part === "In: " || part === "Out: ") {
 				return (
 					<S.Bold key={i}>
@@ -33,7 +31,6 @@ const Modal = ({ data, closeModal }) => {
 					</S.Bold>
 				)
 			}
-    // The rest is regular text
     	return <span key={i}>{part}</span>
 		})
 	}

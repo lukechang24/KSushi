@@ -6,6 +6,7 @@ import axios from "axios"
 import Navbar from "./Components/Navbar/navbar"
 import Homepage from "./Components/Homepage/homepage";
 import Menu from "./Components/Menu/menu"
+import Delivery from "./Components/Delivery/delivery"
 import About from "./Components/About/about"
 import theme from "./theme"
 
@@ -65,7 +66,6 @@ const App = () => {
 
 		const handleResize = () => {
 			if (window.innerWidth >= 768) {
-				console.log("running")
 				setResizeKey(prev => prev + 1)
 			}
 		}
@@ -76,12 +76,15 @@ const App = () => {
 
   return (
 		<>
-			<ThemeProvider key={resizeKey} theme={theme}>
+			<ThemeProvider theme={theme}>
+			{/* <ThemeProvider key={resizeKey} theme={theme}> */}
 				<GlobalStyle />
-				<Navbar />
+				<Navbar key={resizeKey}/>
 				<Homepage />
 				<LineBreak />
 				<Menu data={data} loading={loading}/>
+				<LineBreak />
+				<Delivery />
 				<LineBreak />
 				<About />
 			</ThemeProvider>

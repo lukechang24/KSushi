@@ -1,11 +1,13 @@
 import styled from "styled-components"
 
-export const AboutContainer = styled.div`
+export const AboutSection = styled.div`
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	background-color: ${({ theme }) => theme.colors.background};
+	padding: ${({ theme }) => theme.spacing.pagePadding.mobile};
+	margin-bottom: 5rem;
 `
 
 export const AboutTitle = styled.h1`
@@ -13,11 +15,11 @@ export const AboutTitle = styled.h1`
 	padding: 5px;
 	border-top: 1px solid ${({ theme }) => theme.colors.primary};
 	border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
-	margin: 80px 0 40px;
+	margin: 5rem 0 3rem;
 `
 
 export const AboutDescription = styled.p`
-	width: 80%;
+	width: 90%;
 	color: ${({ theme }) => theme.colors.textSecondary};
   text-align: center;
 	line-height: 25px;

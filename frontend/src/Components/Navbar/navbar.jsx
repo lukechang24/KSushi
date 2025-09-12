@@ -9,10 +9,11 @@ import * as S from "./navbar.styles"
 const Navbar = () => {
 	const [showNav, setShowNav] = useState(false)
 	return(
-		<S.NavbarContainer>
+		<S.NavbarSection>
 			<S.NavbarLogo src={logo} />
 			<S.NavLinkContainer>
 				<S.NavLink href="#menu">MENU</S.NavLink>
+				<S.NavLink href="#delivery">DELIVERY</S.NavLink>
 				<S.NavLink href="#about">ABOUT US</S.NavLink>
 				<S.NavLink href="#contact">CONTACT</S.NavLink>
 			</S.NavLinkContainer>
@@ -30,6 +31,9 @@ const Navbar = () => {
 					<S.NavLink href="#menu" $sideNav onClick={() => setShowNav(false)}>
 						MENU
 					</S.NavLink>
+					<S.NavLink href="#delivery" $sideNav onClick={() => setShowNav(false)}>
+						DELIVERY
+					</S.NavLink>
 					<S.NavLink href="#about" $sideNav onClick={() => setShowNav(false)}>
 						ABOUT US
 					</S.NavLink>
@@ -39,7 +43,7 @@ const Navbar = () => {
 				</S.SideNav>
 			<S.Overlay $open={showNav}></S.Overlay>
 			</S.SideNavContainer>
-		</S.NavbarContainer>
+		</S.NavbarSection>
 	)
 }
 

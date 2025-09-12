@@ -2,9 +2,9 @@ import * as S from "./homepage.styles"
 
 const Homepage = () => {
 	return(
-		<S.HomepageContainer>
+		<S.HomepageSection>
 			<S.ViewMenuLink href="#menu">VIEW MENU <S.DownArrow></S.DownArrow></S.ViewMenuLink>
-		</S.HomepageContainer>
+		</S.HomepageSection>
 	)
 }
 

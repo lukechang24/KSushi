@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import { motion } from "framer-motion"
-import { RxCaretRight, RxCaretDown } from "react-icons/rx";
+import { RxCaretRight, RxCaretDown } from "react-icons/rx"
+import { FaStar } from "react-icons/fa"
 
 // const fade = keyframes`
 // 	from {
@@ -21,29 +22,33 @@ export const AccordionContainer = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
+	font-size: 1.15rem;
+	padding: 0.5em;
 	border-bottom: 1px solid ${props => props.theme.colors.primary};
-	margin: 0 0 10px;
+	margin-bottom: 0.5em;
+	cursor: pointer;
 	transition: all 0.25s ease-in-out;
 `
 
 export const AccordionTitle = styled.div`
+	display: flex;
+	align-items: center;
 	// color: ${({ $active, theme }) => $active ? `${theme.colors.primary}` : `${theme.colors.text}`};
-	font-size: 18px;
-	padding: 10px;
 `
 
 export const RightCaret = styled(RxCaretRight)`
-	font-size: 25px;
-	margin-right: 10px;
+	font-size: 1.5rem;
 `
 
 export const DownCaret = styled(RxCaretDown)`
 	// color: ${({ theme }) => theme.colors.primary};
-	font-size: 25px;
-	font-weight: lighter;
-	margin-right: 10px;
+	font-size: 1.5rem;
 `
 
+export const Star = styled(FaStar)`
+	color: #F0A500;
+	margin-left: 0.5rem;
+`
 
 export const ItemList = styled(motion.div)`
 	display: flex;
@@ -63,10 +68,10 @@ export const SubcategoryTitle = styled.h2`
 	position: ${props => props.$sticky ? "fixed" : "relative"};
 	top: ${props => props.$sticky ? "54px" : "0"};
 	width: 100%;
-	font-size: 20px;
+	font-size: 1.25rem;
 	background-color: ${({ theme }) => theme.colors.background};
 	color: ${({ theme }) => theme.colors.text};
-	padding: ${props => props.$sticky ? "7px 0 10px" : "7px 0 10px"};
+	padding: ${props => props.$sticky ? "10px 0 10px" : "7px 0 10px"};
 	box-shadow: ${props => props.$sticky ? "none" : "none"};
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		top: ${props => props.$sticky ? "60px" : "0"};

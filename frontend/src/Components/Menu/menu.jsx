@@ -20,6 +20,7 @@ const Menu = ({ data, loading }) => {
 	const [selectedItem, setSelectedItem] = useState(null)
 	const [showHint, setShowHint] = useState(false)
 	
+	const lastWindowWidth = useRef(window.innerWidth);
 	const triggeredHintRef = useState(false)
 	const menuRef = useRef()
 	const subRefs = useRef([])
@@ -119,22 +120,26 @@ const Menu = ({ data, loading }) => {
 	}, [])
 
 	useLayoutEffect(() => {
-  const resetAccordions = () => {
+  const handleResize = () => {
     // subRefs.current.forEach((ref, i) => {
     //   subOffsets.current[i] = ref.offsetTop
     // })
 		// console.log(subRefs.current, "SUBREFS")
 		// console.log(subOffsets.current, "THIS")
-		setActiveTab(null)
-		setActiveSub(null)
+		if (window.innerWidth !== lastWindowWidth.current) {
+			lastWindowWidth.current = window.innerWidth
+			// Only reset if actual width changed
+			setActiveTab(null)
+			setActiveSub(null)
+		}
   }
 	
-  window.addEventListener("resize", resetAccordions)
-  return () => window.removeEventListener("resize", resetAccordions)
+  window.addEventListener("resize", handleResize)
+  return () => window.removeEventListener("resize", handleResize)
 	}, [])
 
 	return(
-		<S.MenuContainer id="menu">
+		<S.MenuSection id="menu">
 			{loading 
 				?
 					<S.Menu>
@@ -145,11 +150,10 @@ const Menu = ({ data, loading }) => {
 					<S.Menu ref={menuRef}>
 						<S.MenuTitle>MENU</S.MenuTitle>
 						<S.CategoryLinkContainer>
-							{Object.keys(data).map((category, i) => {
-								if (i === 0) return
+							{Object.keys(data).slice(1).map((category, i) => {
 								return(
 									<S.CategoryLink
-										key={i}
+										key={category}
 										onClick={() => {
 											if (activeTab !== category) {
 												handleTab(category)
@@ -159,7 +163,7 @@ const Menu = ({ data, loading }) => {
 											}
 										}}
 									>
-										<S.CategoryLinkIcon src={categoryUrl[i - 1]}></S.CategoryLinkIcon>
+										<S.CategoryLinkIcon src={categoryUrl[i]}></S.CategoryLinkIcon>
 										<S.CategoryLinkName>{category}</S.CategoryLinkName>
 									</S.CategoryLink>
 								)})
@@ -197,7 +201,7 @@ const Menu = ({ data, loading }) => {
 					</S.Menu>
 			}
 			<S.MenuHint $show={showHint}>Tap for more details</S.MenuHint>
-		</S.MenuContainer>
+		</S.MenuSection>
 	)
 }
 

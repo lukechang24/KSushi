@@ -8,11 +8,11 @@ const fadeInOut = keyframes`
   100% { opacity: 0; transform: translate(-50%, -50%) scale(0.95); }
 `
 
-export const MenuContainer = styled.div`
+export const MenuSection = styled.div`
 	width: 100%;
 	max-width: 900px;
 	padding: 0 ${({ theme }) => theme.spacing.pagePadding.mobile};
-	margin: 0 0 125px;
+	margin-bottom: 5rem;
 `
 
 const spin = keyframes`
@@ -21,8 +21,8 @@ const spin = keyframes`
 `
 
 export const Spinner = styled(FaCircleNotch)`
-  font-size: 30px;
-	margin-top: 150px;
+  font-size: 3rem;
+	margin-top: 10rem;
   color: ${({ theme }) => theme.colors.text};
   animation: ${spin} 1s linear infinite;
 `
@@ -40,7 +40,7 @@ export const MenuTitle = styled.h1`
 	padding: 5px;
 	border-top: 1px solid ${({ theme }) => theme.colors.primary};
 	border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
-	margin: 64px 0 20px;
+	margin: 4rem 0 2rem;
 `
 
 export const CategoryLinkContainer = styled.div`
@@ -75,11 +75,11 @@ export const CategoryLinkIcon = styled.img`
 
 export const CategoryLinkName = styled.h3`
 	font-family: ${props => props.theme.fonts.main};
-	font-size: 12px;
+	font-size: 0.75rem;
 	text-align: center;
-	margin-top: 10px;
+	margin-top: 0.65rem;
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
-		font-size: 16px;
+		font-size: 1rem;
 	}
 `
 
@@ -92,17 +92,16 @@ export const CategoryList = styled.div`
 export const CategoryMarker = styled.button`
 	font-family: ${props => props.theme.fonts.secondary};
 	position: fixed;
-	top: 66px;
-	width: 120px;
+	top: 68px;
+	right: ${({ theme }) => theme.spacing.pagePadding.mobile};
 	background-color: transparent;
 	color: ${({ theme }) => theme.colors.text};
 	text-align: right;
-	right: ${({ theme }) => `calc(${theme.spacing.pagePadding.mobile})`};
+	letter-spacing: -0.025em;
 	border: 0;
 	z-index: 6;
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		top: 74px;
-		width: auto;
 	}
 	@media (min-width: 900px) {
 		display: none;
@@ -115,9 +114,10 @@ export const MenuHint = styled.h3`
 	left: 50%;
 	transform: translate(-50%, -50%);
 	display: ${({ $show }) => $show ? "block" : "none"};
-	font-size: 30px;
+	width: 15rem;
+	font-size: 2rem;
 	font-weight: 300;
 	text-align: center;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
 	animation: ${fadeInOut} 3s linear;
 `

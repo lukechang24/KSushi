@@ -10,7 +10,7 @@ const slideOut = keyframes`
 	100% { right: -100vw; }
 `
 
-export const NavbarContainer = styled.div`
+export const NavbarSection = styled.div`
 	position: fixed;
 	top: 0;
 	left: 0;

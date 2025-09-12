@@ -30,7 +30,12 @@ const Category = ({title, items, index, handleItemClick, closeModal, isOpen, han
 				onClick={() => handleTab(title, index)}
 				ref={(el) => setAccordionRef(el)}
 			>
-				<S.AccordionTitle $active={isOpen}>{title}</S.AccordionTitle>
+				<S.AccordionTitle $active={isOpen}>
+					{title}
+					{index === 0 &&
+						<S.Star></S.Star>
+					}
+				</S.AccordionTitle>
 				{isOpen ?
 					<S.DownCaret />
 				:
