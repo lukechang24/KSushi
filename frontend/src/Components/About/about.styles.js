@@ -15,7 +15,7 @@ export const AboutTitle = styled.h1`
 	padding: 5px;
 	border-top: 1px solid ${({ theme }) => theme.colors.primary};
 	border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
-	margin: 5rem 0 3rem;
+	margin: 5rem 0;
 `
 
 export const AboutDescription = styled.p`

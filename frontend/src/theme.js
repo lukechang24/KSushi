@@ -2,7 +2,7 @@ const theme = {
 	colors: {
     primary: "#F0A500",
     accent: "hsl(0, 100%, 30%)",
-    background: "#0e0e0e",
+    background: "#171717",
     text: "#F5F5F5",
 		textSecondary: "#CCC",
 		hover: "#666"

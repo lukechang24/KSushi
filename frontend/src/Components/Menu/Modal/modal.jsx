@@ -36,11 +36,11 @@ const Modal = ({ data, closeModal }) => {
 	}
 
 	return(
-		<S.ModalContainer
+		<S.ModalSection
 			// $isLoaded={loaded}
 		>
-			<S.Overlay></S.Overlay>
-			<S.Modal>
+			<S.Overlay onClick={() => closeModal()}></S.Overlay>
+			<S.ModalContainer>
 				<S.ExitButton onClick={() => closeModal()}>×</S.ExitButton>
 				<S.ModalImageContainer>
 					{!loaded &&	
@@ -73,8 +73,8 @@ const Modal = ({ data, closeModal }) => {
 						)}
 					</S.ModalInfoContainer>
 				)}
-			</S.Modal>
-		</S.ModalContainer>
+			</S.ModalContainer>
+		</S.ModalSection>
 	)
 }
 

@@ -19,13 +19,14 @@ const Menu = ({ data, loading }) => {
 	const [activeSub, setActiveSub] = useState("")
 	const [selectedItem, setSelectedItem] = useState(null)
 	const [showHint, setShowHint] = useState(false)
+	const [showBackToTop, setShowBackToTop] = useState(false)
 	
-	const lastWindowWidth = useRef(window.innerWidth);
-	const triggeredHintRef = useState(false)
 	const menuRef = useRef()
 	const subRefs = useRef([])
 	const subOffsets = useRef([])
 	const lastScrollY = useRef(0)
+	const lastWindowWidth = useRef(window.innerWidth)
+	const triggeredHintRef = useRef(false)
 
 	const activeAccordionRef = useRef(null)
 
@@ -75,10 +76,10 @@ const Menu = ({ data, loading }) => {
 			const scrollingDown = scrollPos > lastScrollY.current
 			lastScrollY.current = scrollPos
 
-			const menuTop = menuRef.current && menuRef.current.offsetTop - 100
-			const scrollBottom = window.scrollY
+			const menuTop = menuRef.current && menuRef.current.offsetTop
+			setShowBackToTop(scrollPos >= menuTop - 100)
 
-			if (!triggeredHintRef.current && scrollBottom >= menuTop) {
+			if (!triggeredHintRef.current && scrollPos >= menuTop - 150) {
 				setShowHint(true)
 				triggeredHintRef.current = true
 				setTimeout(() => {
@@ -201,6 +202,13 @@ const Menu = ({ data, loading }) => {
 					</S.Menu>
 			}
 			<S.MenuHint $show={showHint}>Tap for more details</S.MenuHint>
+			{showBackToTop &&
+				<S.BackToTop 
+					onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+				>
+					<S.ChevronUp></S.ChevronUp>
+				</S.BackToTop>
+			}
 		</S.MenuSection>
 	)
 }

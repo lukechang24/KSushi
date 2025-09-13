@@ -10,7 +10,7 @@ const fadeIn = keyframes`
 	}
 `
 
-export const ModalContainer = styled.div`
+export const ModalSection= styled.div`
 	position: fixed;
 	inset: 0;
 	display: flex;
@@ -30,16 +30,17 @@ export const Overlay = styled.div`
 	background-color: black;
 `
 
-export const Modal = styled.div`
+export const ModalContainer = styled.div`
 	width: 90%;
 	position: fixed;
 	display: flex;
 	flex-direction: column;
 	background-color: #111;
-	z-index: 50;
-	margin: 0 10px;
 	padding: 30px;
-
+	border-radius: 10px;
+	margin: 0 10px;
+	z-index: 50;
+	
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		width: 400px;
 	}

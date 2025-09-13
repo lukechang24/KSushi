@@ -1,5 +1,6 @@
 import styled, { keyframes } from "styled-components"
 import { FaCircleNotch } from "react-icons/fa"
+import { FaC, FaChevronUp } from "react-icons/fa6";
 
 const fadeInOut = keyframes`
 	0% { opacity: 0; transform: translate(-50%, -50%) scale(0.95); }
@@ -99,7 +100,6 @@ export const CategoryMarker = styled.button`
 	text-align: right;
 	letter-spacing: -0.025em;
 	border: 0;
-	z-index: 6;
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		top: 74px;
 	}
@@ -120,4 +120,32 @@ export const MenuHint = styled.h3`
 	text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
 	animation: ${fadeInOut} 3s linear;
+`
+
+export const BackToTop = styled.button`
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.text};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    background-color: #d98f00; /* slightly darker primary */
+    transform: translateY(-2px);
+  }
+`
+
+export const ChevronUp = styled(FaChevronUp)`
+	
 `

@@ -13,38 +13,50 @@ export const DeliveryTitle = styled.h1`
 	padding: 5px;
 	border-top: 1px solid ${({ theme }) => theme.colors.primary};
 	border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
-	margin: 5rem 0 2rem;
+	margin: 5rem 0;
 `
 
-export const DeliveryCardContainer = styled.div`
+export const DeliveryContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	gap: 2rem 0;
+	gap: 5rem 0;
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		flex-direction: row;
-		gap: 0 2rem;
+		gap: 0 5rem;
 	}
 `
 
-export const DeliveryCard = styled.div`
+export const DeliveryCard = styled.a`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: ${({ $padding }) => $padding};
-	border-radius: 8px;
 	cursor: pointer;
-	transition: all 0.2s ease;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.primary};
-  }
+	text-decoration: none;
+	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+		&:hover > div {
+			border-bottom: 1px solid ${({ theme }) => theme.colors.text};
+		}
+		&:hover > img {
+				background-color: ${({ theme }) => theme.colors.primary};
+		}
+	}
 `
 
 export const DeliveryLogo = styled.img`
 	width: ${({ $width }) => $width};
+	background-color: ${({ $color }) => $color};
+	padding: ${({ $padding }) => $padding};
+	border-radius: 8px;
+	transition: all 0.2s ease;
 `
 
 export const DeliveryButton = styled.div`
-	margin-top: ${({ $marginTop }) => $marginTop};
+	box-sizing: border-box;
+	color: ${({ theme }) => theme.colors.text};
 	border-bottom: 1px solid ${({ theme }) => theme.colors.text};
+	margin-top: 1.5rem;
+	transition: all 0.2s ease;
+	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+		border-bottom: 1px solid transparent;
+	}
 `
