@@ -1,10 +1,10 @@
-import React from "react"
+import React, { useRef } from "react"
 import { AnimatePresence } from "framer-motion"
 
 import ItemCard from "../ItemCard/itemCard"
 import * as S from "./category.styles"
 
-const Category = ({title, items, index, handleItemClick, closeModal, isOpen, handleTab, activeSub, subRefs, subOffsets, accordionRef, scrollToAccordion }) => {
+const Category = ({title, items, index, handleItemClick, closeModal, isOpen, handleTab, activeSub, subRefs, subOffsets, accordionRef, scrollToAccordion, hasMounted }) => {
 
 	const setSubRef = (el, i) => {
 		if (el && isOpen) {
@@ -54,6 +54,10 @@ const Category = ({title, items, index, handleItemClick, closeModal, isOpen, han
 					style={{ overflow: "hidden" }}
 					onAnimationComplete={() => {
 						if (!isOpen) return
+						if (!hasMounted.current) {
+							hasMounted.current = true
+							return
+						}
 						populateSubRefOffset()
 						scrollToAccordion()
 					}}

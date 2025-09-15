@@ -36,7 +36,7 @@ export const ModalContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	background-color: #111;
-	padding: 30px;
+	padding: 20px;
 	border-radius: 10px;
 	margin: 0 10px;
 	z-index: 50;
@@ -52,8 +52,8 @@ export const ModalContainer = styled.div`
 
 export const ExitButton = styled.button`
 	position: absolute;
-	top: 0;
-	right: 2px;
+	top: -5px;
+	right: -4px;
 	width: 30px;
 	height: 30px;
 	background-color: transparent;
@@ -76,7 +76,6 @@ export const ModalImageContainer = styled.div`
   width: 100%;
   height: auto;
 	aspect-ratio: 1 / 1;
-	// margin: 0 0 5px;
 `
 
 

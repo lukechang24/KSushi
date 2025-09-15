@@ -21,6 +21,7 @@ const Menu = ({ data, loading }) => {
 	const [showHint, setShowHint] = useState(false)
 	const [showBackToTop, setShowBackToTop] = useState(false)
 	
+	const hasMounted = useRef(false)
 	const menuRef = useRef()
 	const subRefs = useRef([])
 	const subOffsets = useRef([])
@@ -125,8 +126,6 @@ const Menu = ({ data, loading }) => {
     // subRefs.current.forEach((ref, i) => {
     //   subOffsets.current[i] = ref.offsetTop
     // })
-		// console.log(subRefs.current, "SUBREFS")
-		// console.log(subOffsets.current, "THIS")
 		if (window.innerWidth !== lastWindowWidth.current) {
 			lastWindowWidth.current = window.innerWidth
 			// Only reset if actual width changed
@@ -187,6 +186,7 @@ const Menu = ({ data, loading }) => {
 									subOffsets={subOffsets}
 									accordionRef={activeAccordionRef}
 									scrollToAccordion={scrollToAccordion}
+									hasMounted={hasMounted}
 								/>)
 						})}
 						{activeSub && 
@@ -201,7 +201,7 @@ const Menu = ({ data, loading }) => {
 						</S.CategoryList>
 					</S.Menu>
 			}
-			<S.MenuHint $show={showHint}>Tap for more details</S.MenuHint>
+			{/* <S.MenuHint $show={showHint}>Tap for more details</S.MenuHint> */}
 			{showBackToTop &&
 				<S.BackToTop 
 					onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

@@ -67,7 +67,6 @@ async function fetchAllSheetsData() {
 app.get("/menu", async (req, res) => {
   try {
 		const data = await fetchAllSheetsData()
-		console.log(data)
     if (!data || data.length === 0) {
       return res.status(404).send("No data found.");
     }
