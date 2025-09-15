@@ -53,8 +53,7 @@ export const Star = styled(FaStar)`
 export const ItemList = styled(motion.div)`
 	display: flex;
 	flex-wrap: wrap;
-	gap: 0 4%;
-
+	gap: 8px 4%;
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		gap: 10px 2%;
 	}
@@ -66,15 +65,16 @@ export const ItemList = styled(motion.div)`
 
 export const SubcategoryTitle = styled.h2`
 	position: ${props => props.$sticky ? "fixed" : "relative"};
-	top: ${props => props.$sticky ? "54px" : "0"};
+	top: ${props => props.$sticky ? "72px" : "0"};
 	width: 100%;
 	font-size: 1.25rem;
 	background-color: ${({ theme }) => theme.colors.background};
 	color: ${({ theme }) => theme.colors.text};
 	padding: ${props => props.$sticky ? "10px 0 10px" : "7px 0 10px"};
 	box-shadow: ${props => props.$sticky ? "none" : "none"};
+	z-index: 5;
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
-		top: ${props => props.$sticky ? "60px" : "0"};
+		top: ${props => props.$sticky ? "82px" : "0"};
 	}
 `
 

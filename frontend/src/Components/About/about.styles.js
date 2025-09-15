@@ -21,7 +21,8 @@ export const AboutTitle = styled.h1`
 export const AboutDescription = styled.p`
 	width: 90%;
 	color: ${({ theme }) => theme.colors.textSecondary};
-  text-align: center;
+	font-size: 0.85rem;
+  // text-align: center;
 	line-height: 25px;
 	margin-bottom: 30px;
 	white-space: pre-wrap;

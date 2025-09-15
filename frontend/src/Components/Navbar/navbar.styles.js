@@ -18,7 +18,8 @@ export const NavbarSection = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	background-color: ${props => props.theme.colors.background};
+	// background-color: ${props => props.theme.colors.background};
+	background-color: #111;
 	color: white;
 	padding: ${({ theme }) => theme.spacing.navbarPadding.mobile} ${({ theme }) => theme.spacing.pagePadding.mobile};
 	box-sizing: border-box;
@@ -26,6 +27,11 @@ export const NavbarSection = styled.div`
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		padding: ${({ theme }) => theme.spacing.navbarPadding.tablet} ${({ theme }) => theme.spacing.pagePadding.mobile};
 	}
+`
+
+export const NavbarLogoContainer = styled.div`
+	display: flex;
+	flex-direction: column;
 `
 
 export const NavbarLogo = styled.img`
@@ -36,6 +42,13 @@ export const NavbarLogo = styled.img`
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		// width: 140px;
 	}
+`
+
+export const NavbarSlogan = styled.p`
+	font-family: ${({ theme }) => theme.fonts.heading};
+	font-size: 0.75rem;
+	font-weight: 100;
+	margin-top: 5px;
 `
 
 export const NavLinkContainer = styled.div`
@@ -69,7 +82,7 @@ export const SideNavContainer = styled.div`
 	visibility: ${({ $open }) => $open ? "visible" : "hidden"};
 	animation: ${({ $open }) =>
     $open
-      ? css`${slideIn} 0.3s forwards`
+      ? css`${slideIn} 0.5s forwards`
       : css`${slideOut} 0.5s forwards`};
 `
 
@@ -81,7 +94,7 @@ export const SideNav = styled.div`
 	width: 70%;
 	height: 100%;
 	background-color: ${({ theme }) => theme.colors.background};
-	padding: 15px;
+	padding: 1.5rem 1rem 1rem;
 	z-index: 51;
 `
 

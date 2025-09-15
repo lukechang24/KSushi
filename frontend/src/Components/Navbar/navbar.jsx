@@ -10,7 +10,10 @@ const Navbar = () => {
 	const [showNav, setShowNav] = useState(false)
 	return(
 		<S.NavbarSection>
-			<S.NavbarLogo src={logo} />
+			<S.NavbarLogoContainer>
+				<S.NavbarLogo src={logo} />
+				<S.NavbarSlogan>Family-owned and operated since 2005</S.NavbarSlogan>
+			</S.NavbarLogoContainer>
 			<S.NavLinkContainer>
 				<S.NavLink href="#menu">MENU</S.NavLink>
 				<S.NavLink href="#delivery">DELIVERY</S.NavLink>

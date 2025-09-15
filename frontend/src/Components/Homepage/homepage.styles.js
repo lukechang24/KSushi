@@ -4,8 +4,7 @@ import backgroundImage from "../../Images/background.jpg"
 
 export const HomepageSection = styled.div`
 	width: 100vw;
-  min-height: calc(100vh - 100px);
-  background-image: ${({ theme }) => `linear-gradient(rgba(0, 0, 0, 0.45),${theme.colors.background}`}
+  background-image: ${({ theme }) => `linear-gradient(rgba(0, 0, 0, 0.2),${theme.colors.background}`}
   ), url(${backgroundImage});
   background-repeat: no-repeat;
   background-size: cover;
@@ -17,7 +16,7 @@ export const HomepageSection = styled.div`
   text-align: center;
 `
 
-export const ViewMenuLink = styled.a`
+export const HomepageMenuLink = styled.a`
 	display: flex;
 	align-items: center;
 	background-color: transparent;
@@ -26,6 +25,7 @@ export const ViewMenuLink = styled.a`
 	padding: 0.75em;
 	border: 1px solid ${({ theme }) => theme.colors.text};
 	border-radius: 1.5px;
+	margin: 16.5rem 0;
 	text-decoration: none;
 	transition: 0.2s linear;
 	&:hover {
@@ -36,4 +36,24 @@ export const ViewMenuLink = styled.a`
 
 export const DownArrow = styled(IoIosArrowDown)`
 	margin-left: 5px;
+`
+
+export const HomepageInfoContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-item: center;
+	font-size: 0.8rem;
+	margin-bottom: 1rem;
+`
+
+export const HomepageHours = styled.p`
+
+`
+
+export const HomepageAddress = styled.p`
+
+`
+
+export const HomepagePhone = styled.p`
+
 `

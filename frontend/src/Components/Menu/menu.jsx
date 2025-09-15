@@ -18,7 +18,7 @@ const Menu = ({ data, loading }) => {
 	const [activeTab, setActiveTab] = useState(null)
 	const [activeSub, setActiveSub] = useState("")
 	const [selectedItem, setSelectedItem] = useState(null)
-	const [showHint, setShowHint] = useState(false)
+	const [showHint, setShowHint] = useState(true)
 	const [showBackToTop, setShowBackToTop] = useState(false)
 	
 	const hasMounted = useRef(false)
@@ -80,12 +80,11 @@ const Menu = ({ data, loading }) => {
 			const menuTop = menuRef.current && menuRef.current.offsetTop
 			setShowBackToTop(scrollPos >= menuTop - 100)
 
-			if (!triggeredHintRef.current && scrollPos >= menuTop - 150) {
-				setShowHint(true)
+			if (!triggeredHintRef.current && scrollPos >= menuTop - 200) {
 				triggeredHintRef.current = true
 				setTimeout(() => {
 					setShowHint(false)
-				}, 3000)
+				}, 5000)
 			}
 
 			if (menuRef.current && (scrollPos > menuRef.current.offsetTop + menuRef.current.offsetHeight - 180)) {
@@ -187,6 +186,7 @@ const Menu = ({ data, loading }) => {
 									accordionRef={activeAccordionRef}
 									scrollToAccordion={scrollToAccordion}
 									hasMounted={hasMounted}
+									showHint={showHint}
 								/>)
 						})}
 						{activeSub && 
@@ -201,7 +201,6 @@ const Menu = ({ data, loading }) => {
 						</S.CategoryList>
 					</S.Menu>
 			}
-			{/* <S.MenuHint $show={showHint}>Tap for more details</S.MenuHint> */}
 			{showBackToTop &&
 				<S.BackToTop 
 					onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

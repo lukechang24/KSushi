@@ -41,7 +41,7 @@ export const MenuTitle = styled.h1`
 	padding: 5px;
 	border-top: 1px solid ${({ theme }) => theme.colors.primary};
 	border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
-	margin: 4rem 0 2rem;
+	margin: 6rem 0 2rem;
 `
 
 export const CategoryLinkContainer = styled.div`
@@ -93,7 +93,7 @@ export const CategoryList = styled.div`
 export const CategoryMarker = styled.button`
 	font-family: ${props => props.theme.fonts.secondary};
 	position: fixed;
-	top: 68px;
+	top: 86px;
 	right: ${({ theme }) => theme.spacing.pagePadding.mobile};
 	background-color: transparent;
 	color: ${({ theme }) => theme.colors.text};
@@ -101,7 +101,7 @@ export const CategoryMarker = styled.button`
 	letter-spacing: -0.025em;
 	border: 0;
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
-		top: 74px;
+		top: 96px;
 	}
 	@media (min-width: 900px) {
 		display: none;

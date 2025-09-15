@@ -1,7 +1,7 @@
 import { getMenuImageUrl } from "../../../helper"
 import * as S from "./itemCard.styles"
 
-const ItemCard = ({ data, index, handleItemClick }) => {
+const ItemCard = ({ data, index, handleItemClick, showHint }) => {
 	let pcs = ""
 	if (data.pcs) {
 		pcs = `(${data.pcs}pcs)`
@@ -33,6 +33,9 @@ const ItemCard = ({ data, index, handleItemClick }) => {
 				<S.ItemName>{formatName(data.name)} {pcs}</S.ItemName>
 				<S.ItemPrice>${data.price}</S.ItemPrice>
 			</S.ItemInfoContainer>
+			{showHint &&
+				<S.ItemTouch></S.ItemTouch>
+			}
 		</S.ItemContainer>
 	)
 }
