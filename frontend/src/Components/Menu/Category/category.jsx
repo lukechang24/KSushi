@@ -4,7 +4,7 @@ import { AnimatePresence } from "framer-motion"
 import ItemCard from "../ItemCard/itemCard"
 import * as S from "./category.styles"
 
-const Category = ({title, items, index, handleItemClick, closeModal, isOpen, handleTab, activeSub, subRefs, subOffsets, accordionRef, scrollToAccordion, hasMounted, showHint }) => {
+const Category = ({title, items, categoryIndex, handleItemClick, closeModal, isOpen, handleTab, activeSub, subRefs, subOffsets, accordionRef, scrollToAccordion, hasMounted, showHint }) => {
 
 	const setSubRef = (el, i) => {
 		if (el && isOpen) {
@@ -27,12 +27,12 @@ const Category = ({title, items, index, handleItemClick, closeModal, isOpen, han
 	return(
 		<S.CategoryContainer>
 			<S.AccordionContainer
-				onClick={() => handleTab(title, index)}
+				onClick={() => handleTab(title, categoryIndex)}
 				ref={(el) => setAccordionRef(el)}
 			>
 				<S.AccordionTitle $active={isOpen}>
 					{title}
-					{index === 0 &&
+					{categoryIndex === 0 &&
 						<S.Star></S.Star>
 					}
 				</S.AccordionTitle>
@@ -86,8 +86,8 @@ const Category = ({title, items, index, handleItemClick, closeModal, isOpen, han
 							return(
 								<ItemCard 
 									key={i}
+									index={i}
 									data={item}
-									index={index}
 									handleItemClick={handleItemClick}
 									showHint={showHint}
 								/>

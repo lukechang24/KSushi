@@ -1,18 +1,18 @@
 import styled, { keyframes } from "styled-components"
-import { TbHandFinger } from "react-icons/tb"
+import { PiHandTapDuotone } from "react-icons/pi";
 
 const blinkAnimation = keyframes`
   0% {
-    opacity: 0.25;
+    opacity: 0.15;
   }
-	15% {
+	30% {
 		opacity: 1;
 	}
-	85% {
+	70% {
 		opacity: 1;
 	}
   100% {
-    opacity: 0.25;
+    opacity: 0.15;
   }
 `
 
@@ -21,19 +21,18 @@ export const ItemContainer = styled.li`
   list-style: none;
 	flex: 0 1 calc(50% - 2%);
 	cursor: pointer;
+	margin-bottom: 0.75rem;
 
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		flex: 0 1 calc(32.9% - 1%);
+		margin-bottom: 1rem;
 	}
 
 	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
 		flex: 0 1 calc(24.5% - 1%);
+		margin-bottom: 1.5rem;
 	}
 )
-
-	// @media (min-width: 600px) {
-  //   width: 30%;     /* ~3 per row */
-  // }
 `
 
 export const ItemImage = styled.img`
@@ -51,25 +50,39 @@ export const ItemInfoContainer = styled.div`
 `
 
 export const ItemName = styled.h3`
-	font-size: 14px;
+	font-size: 0.875rem;
 	white-space: pre-line;
+	@media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
+		font-size: 1.05rem;
+	}
 `
 
 export const SmallText = styled.p`
-	font-size: 12px;
-	// white-space: pre-line;
+	font-size: 0.7rem;
+	@media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
+		font-size: 0.8rem;
+	}
 `
 
 export const ItemPrice = styled.p`
 	font-size: 12px;
 	padding-top: 1px;
 	margin-left: 5px;
+	@media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
+		font-size: 0.875rem;
+	}
 `
 
-export const ItemTouch = styled(TbHandFinger)`
+export const ItemTouch = styled(PiHandTapDuotone)`
 	font-size: 1.75rem;
 	position: absolute;
 	inset: 0;
 	margin: 0.4rem;
-	animation: ${blinkAnimation} 1.75s linear infinite;
+	animation: ${blinkAnimation} 1.5s linear infinite;
+	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+		font-size: 2rem;
+	}
+	@media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
+		font-size: 2.25rem;
+	}
 `

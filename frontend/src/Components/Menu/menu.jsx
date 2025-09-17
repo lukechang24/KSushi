@@ -19,10 +19,10 @@ const Menu = ({ data, loading }) => {
 	const [activeSub, setActiveSub] = useState("")
 	const [selectedItem, setSelectedItem] = useState(null)
 	const [showHint, setShowHint] = useState(true)
-	const [showBackToTop, setShowBackToTop] = useState(false)
 	
 	const hasMounted = useRef(false)
-	const menuRef = useRef()
+	const menuRef = useRef(0)
+	const categoryListRef = useRef(0)
 	const subRefs = useRef([])
 	const subOffsets = useRef([])
 	const lastScrollY = useRef(0)
@@ -46,8 +46,8 @@ const Menu = ({ data, loading }) => {
 				return
 			}
 			window.scrollTo({
-				top: absoluteTop - 120, // Scroll to the top of the page
-				behavior: 'smooth' // Optional: for smooth scrolling animation
+				top: absoluteTop - 180,
+				behavior: 'smooth'
 			})
 		}
 	}
@@ -76,18 +76,17 @@ const Menu = ({ data, loading }) => {
 			const scrollPos = window.scrollY
 			const scrollingDown = scrollPos > lastScrollY.current
 			lastScrollY.current = scrollPos
+			const menu = menuRef.current
+			const menuTop = menu && menu.offsetTop
 
-			const menuTop = menuRef.current && menuRef.current.offsetTop
-			setShowBackToTop(scrollPos >= menuTop - 100)
-
-			if (!triggeredHintRef.current && scrollPos >= menuTop - 200) {
+			if (!triggeredHintRef.current && scrollPos >= menuTop - 200 && scrollPos <= menuTop + menu.offsetHeight - 200) {
 				triggeredHintRef.current = true
 				setTimeout(() => {
 					setShowHint(false)
-				}, 5000)
+				}, 6250)
 			}
 
-			if (menuRef.current && (scrollPos > menuRef.current.offsetTop + menuRef.current.offsetHeight - 180)) {
+			if (menu && (scrollPos > menu.offsetTop + menu.offsetHeight - 180)) {
 				setActiveSub(null)
 				return
 			}
@@ -98,7 +97,7 @@ const Menu = ({ data, loading }) => {
 				// Scroll down: last subcategory whose top <= scroll
 				let current = ""
 				for (let i = 0; i < subOffsets.current.length; i++) {
-					if (subOffsets.current[i] - 65 <= scrollPos) {
+					if (subOffsets.current[i] - 85 <= scrollPos) {
 						current = subRefs.current[i].dataset.name
 					}
 				}
@@ -107,7 +106,7 @@ const Menu = ({ data, loading }) => {
 				// Scroll up: first subcategory whose top < scroll, or previous one
 				let current = ""
 				for (let i = subOffsets.current.length - 1; i >= 0; i--) {
-					if (subOffsets.current[i] - 65 < scrollPos) {
+					if (subOffsets.current[i] - 85 <= scrollPos) {
 						current = subRefs.current[i].dataset.name
 						break
 					}
@@ -156,7 +155,7 @@ const Menu = ({ data, loading }) => {
 										onClick={() => {
 											if (activeTab !== category) {
 												handleTab(category)
-												setTimeout(() => scrollToAccordion(true), 350);
+												setTimeout(() => scrollToAccordion(true), 500)
 											} else {
 												scrollToAccordion(true)
 											}
@@ -168,14 +167,14 @@ const Menu = ({ data, loading }) => {
 								)})
 							}
 						</S.CategoryLinkContainer>
-						<S.CategoryList>
+						<S.CategoryList ref={categoryListRef}>
 							{Object.keys(data).map((category, i)=> {
 								return(
 								<Category 
 									key={category}
 									title={category}
 									items={data[category]}
-									index={i}
+									categoryIndex={i}
 									handleItemClick={handleItemClick}
 									closeModal={closeModal}
 									isOpen={activeTab === category}
@@ -190,8 +189,16 @@ const Menu = ({ data, loading }) => {
 								/>)
 						})}
 						{activeSub && 
-							<S.CategoryMarker>{activeTab}</S.CategoryMarker>
-						}
+							<S.BackToTop 
+								onClick={() => {
+									window.scrollTo({ top: categoryListRef.current.offsetTop - 150, behavior: "instant" })
+									setActiveTab(null)
+									setActiveSub(null)
+								}}
+							>
+								<S.ChevronUp></S.ChevronUp>
+							</S.BackToTop>
+							}
 						{selectedItem &&
 							<Modal 
 								data={selectedItem}
@@ -200,13 +207,6 @@ const Menu = ({ data, loading }) => {
 						}
 						</S.CategoryList>
 					</S.Menu>
-			}
-			{showBackToTop &&
-				<S.BackToTop 
-					onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-				>
-					<S.ChevronUp></S.ChevronUp>
-				</S.BackToTop>
 			}
 		</S.MenuSection>
 	)

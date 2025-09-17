@@ -28,21 +28,38 @@ export const AccordionContainer = styled.div`
 	margin-bottom: 0.5em;
 	cursor: pointer;
 	transition: all 0.25s ease-in-out;
+
+	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+		padding: 0.75em;
+		margin-bottom: 0.75em;
+	}
 `
 
 export const AccordionTitle = styled.div`
 	display: flex;
 	align-items: center;
 	// color: ${({ $active, theme }) => $active ? `${theme.colors.primary}` : `${theme.colors.text}`};
+	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+		font-size: 1.25rem;
+	}
+	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+		font-size: 1.5rem;
+	}
 `
 
 export const RightCaret = styled(RxCaretRight)`
 	font-size: 1.5rem;
+	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+		font-size: 2rem;
+	}
 `
 
 export const DownCaret = styled(RxCaretDown)`
 	// color: ${({ theme }) => theme.colors.primary};
 	font-size: 1.5rem;
+	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+		font-size: 2rem;
+	}
 `
 
 export const Star = styled(FaStar)`
@@ -53,13 +70,13 @@ export const Star = styled(FaStar)`
 export const ItemList = styled(motion.div)`
 	display: flex;
 	flex-wrap: wrap;
-	gap: 8px 4%;
+	gap: 0 4%;
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
-		gap: 10px 2%;
+		gap: 0 2%;
 	}
 
 	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
-		gap: 25px 2%;
+		gap: 0 2%;
 	}
 `
 
@@ -70,18 +87,29 @@ export const SubcategoryTitle = styled.h2`
 	font-size: 1.25rem;
 	background-color: ${({ theme }) => theme.colors.background};
 	color: ${({ theme }) => theme.colors.text};
-	padding: ${props => props.$sticky ? "10px 0 10px" : "7px 0 10px"};
+	padding: ${props => props.$sticky ? "10px 0 10px" : "10px 0 10px"};
 	box-shadow: ${props => props.$sticky ? "none" : "none"};
 	z-index: 5;
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
-		top: ${props => props.$sticky ? "82px" : "0"};
+		top: ${props => props.$sticky ? "88px" : "0"};
+		font-size: 1.5rem;
+	}
+	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+		// top: ${props => props.$sticky ? "88px" : "0"};
+		font-size: 1.75rem;
 	}
 `
 
 export const InvisibleSpace = styled.h2`
 	width: 100%;
-	font-size: 20px;
-	margin: 5px 0 10px;
-	color: ${({ theme }) => theme.colors.background};
 	display: ${props => props.$show ? "block" : "none"};
+	color: ${({ theme }) => theme.colors.background};
+	font-size: 1.25rem;
+	padding: 10px 0 10px;
+	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+		font-size: 1.5rem;
+	}
+	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+		font-size: 1.75rem;
+	}
 `

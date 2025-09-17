@@ -20,6 +20,7 @@ export const ModalSection= styled.div`
 	height: 100vh;
 	overflow: hidden;
 	animation: ${fadeIn} 0.2s ease-in-out forwards;
+	z-index: 60;
 `
 
 export const Overlay = styled.div`
@@ -36,31 +37,37 @@ export const ModalContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	background-color: #111;
-	padding: 20px;
+	padding: 1.675rem;
 	border-radius: 10px;
 	margin: 0 10px;
 	z-index: 50;
 	
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		width: 400px;
+		padding: 2rem;
 	}
 
 	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
 		width: 500px;
+		padding: 2.5rem;
 	}
 `
 
 export const ExitButton = styled.button`
+	box-sizing: content-box;
 	position: absolute;
-	top: -5px;
-	right: -4px;
+	top: 0;
+	right: 0;
 	width: 30px;
 	height: 30px;
 	background-color: transparent;
 	font-size: 30px;
-	padding: 0;
+	padding-bottom: 2px;
 	border: none;
 	color: ${props => props.theme.colors.text};
+	&:hover {
+		background-color: darkRed;
+	}
 	&:active {
 		color: white;
 		background-color: darkRed;
@@ -68,6 +75,16 @@ export const ExitButton = styled.button`
 	&:focus {
 		color: white;
 		background-color: darkRed;
+	}
+
+	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+		top: 3px;
+		right: 3px;
+	}
+
+	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+		top: 6px;
+		right: 6px;
 	}
 `
 

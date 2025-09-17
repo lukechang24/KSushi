@@ -33,7 +33,7 @@ const ItemCard = ({ data, index, handleItemClick, showHint }) => {
 				<S.ItemName>{formatName(data.name)} {pcs}</S.ItemName>
 				<S.ItemPrice>${data.price}</S.ItemPrice>
 			</S.ItemInfoContainer>
-			{showHint &&
+			{(showHint && index === 0) &&
 				<S.ItemTouch></S.ItemTouch>
 			}
 		</S.ItemContainer>
