@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { motion } from "framer-motion"
-import { RxCaretRight, RxCaretDown } from "react-icons/rx"
+import { RxCaretRight, RxCaretDown, RxCaretUp } from "react-icons/rx"
 import { FaStar } from "react-icons/fa"
 
 // const fade = keyframes`
@@ -29,6 +29,10 @@ export const AccordionContainer = styled.div`
 	cursor: pointer;
 	transition: all 0.25s ease-in-out;
 
+	&:hover {
+		color: ${({ theme }) => theme.colors.primary};
+	}
+	
 	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
 		padding: 0.75em;
 		margin-bottom: 0.75em;
@@ -83,20 +87,27 @@ export const ItemList = styled(motion.div)`
 export const SubcategoryTitle = styled.h2`
 	position: ${props => props.$sticky ? "fixed" : "relative"};
 	top: ${props => props.$sticky ? "72px" : "0"};
+	left: 0;
 	width: 100%;
 	font-size: 1.25rem;
 	background-color: ${({ theme }) => theme.colors.background};
 	color: ${({ theme }) => theme.colors.text};
-	padding: ${props => props.$sticky ? "10px 0 10px" : "10px 0 10px"};
+	padding: ${({ theme, $sticky }) => $sticky ? `10px ${theme.spacing.pagePadding.mobile} 10px` : "10px 0 10px"};
 	box-shadow: ${props => props.$sticky ? "none" : "none"};
 	z-index: 5;
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
-		top: ${props => props.$sticky ? "88px" : "0"};
+		top: ${props => props.$sticky ? "76px" : "0"};
 		font-size: 1.5rem;
 	}
 	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
-		// top: ${props => props.$sticky ? "88px" : "0"};
+		top: ${props => props.$sticky ? "78px" : "0"};
 		font-size: 1.75rem;
+	}
+	@media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
+		width: ${({ theme }) => theme.breakpoints.laptop};
+		left: 50%;
+		transform: translateX(-50%);
+		padding: ${({ $sticky }) => $sticky ? `10px 0 10px` : "10px 0 10px"};
 	}
 `
 
@@ -112,4 +123,37 @@ export const InvisibleSpace = styled.h2`
 	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
 		font-size: 1.75rem;
 	}
+`
+
+export const BackToTop = styled.button`
+  position: absolute;
+	top: 12px;
+	right: ${({ theme }) => theme.spacing.pagePadding.mobile};
+  border-radius: 50%;
+  background-color: ${({ theme }) => theme.colors.background};
+  color: ${({ theme }) => theme.colors.text};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  border: none;
+	margin-right: 0.25rem;
+  cursor: pointer;
+	z-index: 6;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+
+	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+		right: ${({ theme }) => theme.spacing.pagePadding.tablet};
+		font-size: 2rem;
+		margin-right: 0.25rem;
+	}
+	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+		right: ${({ theme }) => theme.spacing.pagePadding.laptop};
+	}
+	@media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
+		right: 0;
+	}
+`
+
+export const ChevronUp = styled(RxCaretUp)`
 `

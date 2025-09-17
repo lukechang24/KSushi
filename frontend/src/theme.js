@@ -15,12 +15,12 @@ const theme = {
   spacing: {
     pagePadding: {
       mobile: "15px",
-      tablet: "25px",
+      tablet: "15px",
       desktop: "50px",
     },
 		navbarPadding: {
 			mobile: "15px",
-			tablet: "20px",
+			tablet: "15px",
 			desktop: "30px"
 		}
   },

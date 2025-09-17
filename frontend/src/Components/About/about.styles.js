@@ -16,6 +16,10 @@ export const AboutTitle = styled.h1`
 	border-top: 1px solid ${({ theme }) => theme.colors.primary};
 	border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
 	margin: 5rem 0;
+	@media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
+		font-size: 2.5rem;
+		margin: 8rem 0 5rem;
+	}
 `
 
 export const AboutDescription = styled.p`

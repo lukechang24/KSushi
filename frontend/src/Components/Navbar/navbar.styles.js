@@ -25,7 +25,10 @@ export const NavbarSection = styled.div`
 	box-sizing: border-box;
 	z-index: 30;
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
-		padding: ${({ theme }) => theme.spacing.navbarPadding.tablet} ${({ theme }) => theme.spacing.pagePadding.mobile};
+		padding: ${({ theme }) => theme.spacing.navbarPadding.mobile} ${({ theme }) => theme.spacing.pagePadding.mobile};
+	}
+	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+		padding: ${({ theme }) => theme.spacing.navbarPadding.tablet} ${({ theme }) => theme.spacing.pagePadding.tablet};
 	}
 `
 
@@ -37,7 +40,7 @@ export const NavbarLogoContainer = styled.div`
 export const NavbarLogo = styled.img`
 	width: 130px;
 	position: ${({ $sideNav }) => $sideNav && "absolute"};
-	left: 45%;
+	left: 50%;
 	transform: ${({ $sideNav }) => $sideNav && "translateX(-50%)"};
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		width: 100px;
@@ -53,9 +56,11 @@ export const NavbarSlogan = styled.p`
 	font-weight: 100;
 	margin-top: 5px;
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
-		width: 150px;
+		width: 135px;
+		margin-top: 3px;
 	}
 	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+		width: 150px;
 		font-size: 1rem;
 		width: auto;
 	}
@@ -64,7 +69,14 @@ export const NavbarSlogan = styled.p`
 export const NavLinkContainer = styled.div`
 	display: none;
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
-		display: block;
+		display: flex;
+		gap: 0 1.375rem;
+	}
+	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+		gap: 0 3rem;
+	}
+	@media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
+		margin-right: 3rem;
 	}
 `
 
@@ -74,7 +86,6 @@ export const NavLink = styled.a`
   font-weight: 500;
   font-size: 1rem;
 	text-align: center;
-	margin-left: ${({ $sideNav }) => !$sideNav && "1.5rem"};
   cursor: pointer;
   transition: color 0.2s ease;
   &:hover {
@@ -82,16 +93,14 @@ export const NavLink = styled.a`
   }
 
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
-		font-size: 0.75rem;
-		margin-left: ${({ $sideNav }) => !$sideNav && "1rem"};
+		font-size: 0.825rem;
 	}
 	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
 		font-size: 1rem;
-		margin-left: ${({ $sideNav }) => !$sideNav && "1.25rem"};
 	}
 `
 
-export const SideNavContainer = styled.div`
+export const SideNavSection = styled.div`
 	display: flex;
 	justify-content: flex-end;
 	position: fixed;
@@ -105,17 +114,18 @@ export const SideNavContainer = styled.div`
       : css`${slideOut} 0.5s forwards`};
 `
 
-export const SideNav = styled.div`
+export const SideNavContainer = styled.div`
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	gap: 30px 0;
+	justify-content: space-between;
 	width: 70%;
 	height: 100%;
 	background-color: ${({ theme }) => theme.colors.background};
 	padding: 1.5rem 1rem 1rem;
 	z-index: 51;
 `
+
 
 export const Overlay = styled.div`
 	position: fixed;
@@ -127,4 +137,40 @@ export const Overlay = styled.div`
     $open
       ? css`${slideIn} 0s forwards`
       : css`${slideOut} 0s forwards`};
+`
+
+export const SideNavLinkContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+`
+
+export const SideNavInfoContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-item: center;
+	gap: 0.5rem 0;
+	color: ${({ theme }) => theme.colors.text};
+	font-size: 0.8rem;
+	text-align: center;
+	margin-bottom: 1rem;
+	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+		font-size: 1rem;
+		margin-bottom: 2rem;
+	}
+	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+		font-size: 1.25rem;
+	}
+`
+
+export const SideNavPhone = styled.a`
+	color: ${({ theme }) => theme.colors.text};
+`
+
+export const SideNavHours = styled.p`
+	
+`
+
+export const SideNavAddress = styled.address`
+
 `

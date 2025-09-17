@@ -4,7 +4,7 @@ import { AnimatePresence } from "framer-motion"
 import ItemCard from "../ItemCard/itemCard"
 import * as S from "./category.styles"
 
-const Category = ({title, items, categoryIndex, handleItemClick, closeModal, isOpen, handleTab, activeSub, subRefs, subOffsets, accordionRef, scrollToAccordion, hasMounted, showHint }) => {
+const Category = ({title, items, categoryIndex, categoryListRef, handleItemClick, closeModal, isOpen, handleTab, activeSub, subRefs, subOffsets, accordionRef, scrollToAccordion, hasMounted, showHint }) => {
 
 	const setSubRef = (el, i) => {
 		if (el && isOpen) {
@@ -78,6 +78,16 @@ const Category = ({title, items, categoryIndex, handleItemClick, closeModal, isO
 										$sticky={activeSub === subcategory}
 									>
 										{subcategory}
+										{(activeSub === subcategory) && 
+											<S.BackToTop 
+												onClick={() => {
+													window.scrollTo({ top: categoryListRef.current.offsetTop - 150, behavior: "instant" })
+													handleTab(title)
+												}}
+											>
+												<S.ChevronUp></S.ChevronUp>
+											</S.BackToTop>
+										}
 									</S.SubcategoryTitle>
 									<S.InvisibleSpace $show={activeSub === subcategory}>X</S.InvisibleSpace>
 								</React.Fragment>

@@ -119,20 +119,33 @@ export const FullImage = styled.img`
 export const ModalName = styled.h2`
 	color: ${({ theme }) => theme.colors.text};
 	font-weight: 600;
-	margin: 5px 0 0;
+	margin-top: 0.5rem;
+	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+		margin-top: 0.75rem;
+	}
+
+	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+		margin-top: 1rem;
+	}
 `
 
 export const ModalPrice = styled.p`
 	color: ${({ theme }) => theme.colors.primary};
 	font-weight: 600;
-	margin: 5px 0 0;
+	margin-top: 0.25rem;
 `
 
 export const ModalInfoContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	gap: 10px 0;
-	margin: 15px 0 0;
+	gap: 0.75rem 0;
+	margin-top: 1rem;
+	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+		gap: 1rem 0;
+	}
+	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+	
+	}
 `
 
 export const ModalDescription = styled.p`
@@ -144,7 +157,7 @@ export const ModalDescription = styled.p`
 
 export const Bold = styled.span`
 	font-weight: 800;
-	margin-right: 3px;
+	margin-right: 0.2rem;
 `
 
 export const ModalExtraContainer = styled.div`
@@ -153,7 +166,7 @@ export const ModalExtraContainer = styled.div`
 	color: ${({ theme }) => theme.colors.textSecondary};
 	& > *:not(:last-child)::after {
     content: "•";
-    margin: 0 6px;
+    margin: 0 0.425rem;
     color: #a1a1a1;
   }
 `

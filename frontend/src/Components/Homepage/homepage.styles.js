@@ -25,7 +25,7 @@ export const HomepageMenuLink = styled.a`
 	padding: 0.75em;
 	border: 1px solid ${({ theme }) => theme.colors.text};
 	border-radius: 1.5px;
-	margin: 16.5rem 0;
+	margin: 16rem 0 13rem;
 	text-decoration: none;
 	transition: 0.2s linear;
 	&:hover {
@@ -42,18 +42,27 @@ export const HomepageInfoContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-item: center;
+	gap: 0.75rem 0;
+	color: ${({ theme }) => theme.colors.text};
 	font-size: 0.8rem;
 	margin-bottom: 1rem;
+	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+		font-size: 1rem;
+		margin-bottom: 2rem;
+	}
+	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+		font-size: 1.25rem;
+	}
+`
+
+export const HomepagePhone = styled.a`
+	color: ${({ theme }) => theme.colors.text};
 `
 
 export const HomepageHours = styled.p`
-
+	
 `
 
-export const HomepageAddress = styled.p`
-
-`
-
-export const HomepagePhone = styled.p`
+export const HomepageAddress = styled.address`
 
 `

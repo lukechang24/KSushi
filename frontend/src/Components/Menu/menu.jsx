@@ -83,10 +83,10 @@ const Menu = ({ data, loading }) => {
 				triggeredHintRef.current = true
 				setTimeout(() => {
 					setShowHint(false)
-				}, 6250)
+				}, 5000)
 			}
 
-			if (menu && (scrollPos > menu.offsetTop + menu.offsetHeight - 180)) {
+			if (menu && (scrollPos > menu.offsetTop + menu.offsetHeight - 130)) {
 				setActiveSub(null)
 				return
 			}
@@ -97,7 +97,7 @@ const Menu = ({ data, loading }) => {
 				// Scroll down: last subcategory whose top <= scroll
 				let current = ""
 				for (let i = 0; i < subOffsets.current.length; i++) {
-					if (subOffsets.current[i] - 85 <= scrollPos) {
+					if (subOffsets.current[i] - 70 <= scrollPos) {
 						current = subRefs.current[i].dataset.name
 					}
 				}
@@ -106,7 +106,7 @@ const Menu = ({ data, loading }) => {
 				// Scroll up: first subcategory whose top < scroll, or previous one
 				let current = ""
 				for (let i = subOffsets.current.length - 1; i >= 0; i--) {
-					if (subOffsets.current[i] - 85 <= scrollPos) {
+					if (subOffsets.current[i] - 70 <= scrollPos) {
 						current = subRefs.current[i].dataset.name
 						break
 					}
@@ -149,15 +149,17 @@ const Menu = ({ data, loading }) => {
 						<S.MenuTitle>MENU</S.MenuTitle>
 						<S.CategoryLinkContainer>
 							{Object.keys(data).slice(1).map((category, i) => {
+								const isActive = activeTab === category
 								return(
 									<S.CategoryLink
 										key={category}
+										$active={isActive}
 										onClick={() => {
-											if (activeTab !== category) {
-												handleTab(category)
-												setTimeout(() => scrollToAccordion(true), 500)
-											} else {
+											if (isActive) {
 												scrollToAccordion(true)
+											} else {
+												handleTab(category)
+												setTimeout(() => scrollToAccordion(true), 375)
 											}
 										}}
 									>
@@ -175,6 +177,7 @@ const Menu = ({ data, loading }) => {
 									title={category}
 									items={data[category]}
 									categoryIndex={i}
+									categoryListRef={categoryListRef}
 									handleItemClick={handleItemClick}
 									closeModal={closeModal}
 									isOpen={activeTab === category}
@@ -188,17 +191,6 @@ const Menu = ({ data, loading }) => {
 									showHint={showHint}
 								/>)
 						})}
-						{activeSub && 
-							<S.BackToTop 
-								onClick={() => {
-									window.scrollTo({ top: categoryListRef.current.offsetTop - 150, behavior: "instant" })
-									setActiveTab(null)
-									setActiveSub(null)
-								}}
-							>
-								<S.ChevronUp></S.ChevronUp>
-							</S.BackToTop>
-							}
 						{selectedItem &&
 							<Modal 
 								data={selectedItem}

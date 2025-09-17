@@ -51,13 +51,13 @@ export const MenuTitle = styled.h1`
 `
 
 export const CategoryLinkContainer = styled.div`
-	max-width: 500px;
+	max-width: ${({ theme }) => theme.breakpoints.mobile};
 	display: flex;
 	flex-wrap: wrap;
 	gap: 20px 2.7%;
 	margin-bottom: 20px;
 	@media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
-		max-width: 1000px;
+		max-width: ${({ theme }) => theme.breakpoints.laptop};
 		width: 100%;
 		justify-content: center;
 		margin-bottom: 2rem;
@@ -70,9 +70,15 @@ export const CategoryLink = styled.button`
 	flex-direction: column;
 	align-items: center;
 	background-color: transparent;
-	color: ${props => props.theme.colors.text};
+	color: ${({ $active, theme }) => $active ? theme.colors.primary : theme.colors.text};
 	border: none;
 	cursor: pointer;
+	transition: all 0.25s ease-in-out;
+
+	&:hover {
+		color: ${({ theme }) => theme.colors.primary};
+	}
+
 	@media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
 		flex: 0 1 14.4%;
 	}
@@ -104,7 +110,7 @@ export const CategoryLinkName = styled.h3`
 `
 
 export const CategoryList = styled.div`
-	max-width: 1000px;
+	max-width: ${({ theme }) => theme.breakpoints.laptop};
 	display: flex;
 	flex-direction: column;
 	width: 100%;
@@ -148,13 +154,13 @@ export const BackToTop = styled.button`
   transition: background-color 0.2s ease, transform 0.2s ease;
 
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
-		top: 100px;
-		right: ${({ theme }) => theme.spacing.pagePadding.tablet};
+		top: 86px;
+		left: ${({ theme }) => `calc(100vw - ${theme.spacing.pagePadding.tablet})`};
 		font-size: 2rem;
 		margin-right: 0.5rem;
 	}
 	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
-		top: 102px;
+		top: 88px;
 
 	}
 `
