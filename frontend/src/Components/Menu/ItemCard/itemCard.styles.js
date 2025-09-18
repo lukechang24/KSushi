@@ -74,16 +74,16 @@ export const ItemPrice = styled.p`
 `
 
 export const ItemTouch = styled(PiHandTapDuotone)`
-	font-size: 2.5rem;
+	font-size: 5rem;
 	position: absolute;
 	top: 40%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	animation: ${blinkAnimation} 1.5s linear infinite;
 	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
-		font-size: 3rem;
+		font-size: 4.5rem;
 	}
 	@media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
-		font-size: 3.5rem;
+		font-size: 5rem;
 	}
 `

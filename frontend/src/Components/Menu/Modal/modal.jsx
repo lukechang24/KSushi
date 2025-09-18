@@ -1,13 +1,14 @@
 import { useState } from "react"
 import { getMenuImageUrl } from "../../../helper"
+import comingSoon from "../../../Images/coming_soon.jpg"
 
 import * as S from "./modal.styles"
 
 const Modal = ({ data, closeModal }) => {
 	const [loaded, setLoaded] = useState(false)
 
-	const lowRes = data.url ? getMenuImageUrl(data.url, "160x160") : "https://placehold.co/320x320"
-	const highRes = data.url ? getMenuImageUrl(data.url, "1040x1040") : "https://placehold.co/320x320"
+	const lowRes = data.url ? getMenuImageUrl(data.url, "160x160") : comingSoon;
+	const highRes = data.url ? getMenuImageUrl(data.url, "1040x1040") : comingSoon;
 
 	const hasDescription = Boolean(data.description)
 	const hasExtra = Boolean(data.pcs || data.spicy)

@@ -1,5 +1,6 @@
 import { getMenuImageUrl } from "../../../helper"
 import * as S from "./itemCard.styles"
+import noPhoto from "../../../Images/coming_soon.jpg"
 
 const ItemCard = ({ data, index, handleItemClick, showHint }) => {
 	let pcs = ""
@@ -26,7 +27,7 @@ const ItemCard = ({ data, index, handleItemClick, showHint }) => {
 	return(
 		<S.ItemContainer onClick={() => handleItemClick(data)}>
 			<S.ItemImage 
-				src={getMenuImageUrl(data.url, "530x530")}
+				src={getMenuImageUrl(data.url, "530x530") || noPhoto}
 				loading="lazy"
 			/>
 			<S.ItemInfoContainer>
