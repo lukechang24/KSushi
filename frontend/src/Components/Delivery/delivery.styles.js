@@ -5,18 +5,17 @@ export const DeliverySection = styled.div`
 	flex-direction: column;
 	align-items: center;
 	padding: ${({ theme }) => theme.spacing.pagePadding.mobile};
-	// margin-top: 5rem;
 	margin-bottom: 5rem;
 `
 
 export const DeliveryTitle = styled.h1`
+	font-size: 2rem;
 	padding: 5px;
 	border-top: 1px solid ${({ theme }) => theme.colors.primary};
 	border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
 	margin: 5rem 0;
 	@media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
 		font-size: 2.5rem;
-		margin: 8rem 0 5rem;
 	}
 `
 

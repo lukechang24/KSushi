@@ -36,14 +36,16 @@ const GlobalStyle = createGlobalStyle`
 		align-items: center;
 	}
 `
+const NavbarSpace = styled.div`
+	width: 100%;
+	height: 71px;
+`
 
 const LineBreak = styled.hr`
 	width: 100%;
 	border: none;
   height: 2px;
   background-color: rgba(255, 255, 255, 0.2);
-  margin-bottom: ${({ $bottom }) => $bottom && "125px"};
-	margin-top: ${({ $top }) => $top && "125px"};
 `
 
 const App = () => {
@@ -79,8 +81,8 @@ const App = () => {
 			{/* <ThemeProvider key={resizeKey} theme={theme}> */}
 				<GlobalStyle />
 				<Navbar key={resizeKey}/>
+				<NavbarSpace></NavbarSpace>
 				<Homepage />
-				<LineBreak />
 				<Menu data={data} loading={loading}/>
 				<LineBreak />
 				<Delivery />

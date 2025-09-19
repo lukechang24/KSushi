@@ -1,19 +1,25 @@
 import styled from "styled-components"
 import { IoIosArrowDown } from "react-icons/io";
-import backgroundImage from "../../Images/background.jpg"
+import heroImage from "../../Images/ksushi_out.jpg"
 
 export const HomepageSection = styled.div`
 	width: 100vw;
-  background-image: ${({ theme }) => `linear-gradient(rgba(0, 0, 0, 0.2),${theme.colors.background}`}
-  ), url(${backgroundImage});
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+	background-image: ${({ theme }) => `linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.65)`}), url(${heroImage});  
+	background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+	background-color: ${({ theme }) => theme.colors.background};
   text-align: center;
+	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+		background-position: 50% 10%;
+	}
+	@media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
+		background-position: 50% 52.5%;
+	}
 `
 
 export const HomepageMenuLink = styled.a`
@@ -25,12 +31,15 @@ export const HomepageMenuLink = styled.a`
 	padding: 0.75em;
 	border: 1px solid ${({ theme }) => theme.colors.text};
 	border-radius: 1.5px;
-	margin: 16rem 0 13rem;
+	margin: 12rem 0;
 	text-decoration: none;
 	transition: 0.2s linear;
 	&:hover {
 		background-color: ${({ theme }) => theme.colors.text};
 		color: ${({ theme }) => theme.colors.background};
+	}
+	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+		margin: 13rem 0;
 	}
 `
 

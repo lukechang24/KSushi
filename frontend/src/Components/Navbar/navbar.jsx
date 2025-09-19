@@ -17,7 +17,7 @@ const Navbar = () => {
 			<S.NavLinkContainer>
 				<S.NavLink href="#menu">MENU</S.NavLink>
 				<S.NavLink href="#delivery">DELIVERY</S.NavLink>
-				<S.NavLink href="#about">ABOUT US</S.NavLink>
+				<S.NavLink href="#about">OUR STORY</S.NavLink>
 				<S.NavLink href="#contact">CONTACT</S.NavLink>
 			</S.NavLinkContainer>
 			<Hamburger
@@ -39,7 +39,7 @@ const Navbar = () => {
 							DELIVERY
 						</S.NavLink>
 						<S.NavLink href="#about" $sideNav onClick={() => setShowNav(false)}>
-							ABOUT US
+							OUR STORY
 						</S.NavLink>
 						<S.NavLink href="#contact" $sideNav onClick={() => setShowNav(false)}>
 							CONTACT

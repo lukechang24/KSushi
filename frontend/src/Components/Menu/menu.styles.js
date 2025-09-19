@@ -35,6 +35,8 @@ export const Menu = styled.div`
 	flex-direction: column;
 	align-items: center;
 	color: ${({ theme }) => theme.colors.text};
+	font-size: 2rem;
+	margin-top: 1rem;
 `
 
 export const MenuTitle = styled.h1`
@@ -43,10 +45,9 @@ export const MenuTitle = styled.h1`
 	padding: 5px;
 	border-top: 1px solid ${({ theme }) => theme.colors.primary};
 	border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
-	margin: 6rem 0 2rem;
+	margin: 5rem 0;
 	@media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
 		font-size: 2.5rem;
-		margin: 8rem 0 3rem;
 	}
 `
 
