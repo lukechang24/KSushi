@@ -40,17 +40,21 @@ export const AboutContainer = styled.div`
 export const AboutDescriptionContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: start;
 	gap: 2rem 0;
 	color: ${({ theme }) => theme.colors.textSecondary};
 	white-space: pre-wrap;
 
-	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+		align-items: center;
+	}
+	@media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
+		align-items: start;
+		gap: 1rem;
+	}
+	@media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
 		gap: 2rem 0;
 	}
-	// @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
-	// 	gap: 1rem;
-	// }
 `
 
 
