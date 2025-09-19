@@ -61,10 +61,11 @@ export const ExitButton = styled.button`
 	width: 30px;
 	height: 30px;
 	background-color: transparent;
+	color: ${props => props.theme.colors.text};
 	font-size: 30px;
 	padding-bottom: 2px;
 	border: none;
-	color: ${props => props.theme.colors.text};
+	cursor: pointer;
 	&:hover {
 		background-color: darkRed;
 	}

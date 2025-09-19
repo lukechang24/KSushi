@@ -35,12 +35,12 @@ export const Menu = styled.div`
 	flex-direction: column;
 	align-items: center;
 	color: ${({ theme }) => theme.colors.text};
-	font-size: 2rem;
 	margin-top: 1rem;
 `
 
 export const MenuTitle = styled.h1`
 	color: ${({ theme }) => theme.colors.text};
+	font-size: 2rem;
 	text-align: center;
 	padding: 5px;
 	border-top: 1px solid ${({ theme }) => theme.colors.primary};
