@@ -16,6 +16,9 @@ export const MenuSection = styled.div`
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		padding: 0 ${({ theme }) => theme.spacing.pagePadding.tablet};
 	}
+	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+		padding: 0 ${({ theme }) => theme.spacing.pagePadding.desktop};
+	}
 `
 
 const spin = keyframes`
@@ -35,7 +38,6 @@ export const Menu = styled.div`
 	flex-direction: column;
 	align-items: center;
 	color: ${({ theme }) => theme.colors.text};
-	margin-top: 1rem;
 `
 
 export const MenuTitle = styled.h1`

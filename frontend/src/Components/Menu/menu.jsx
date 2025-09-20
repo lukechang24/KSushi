@@ -97,7 +97,7 @@ const Menu = ({ data, loading }) => {
 				// Scroll down: last subcategory whose top <= scroll
 				let current = ""
 				for (let i = 0; i < subOffsets.current.length; i++) {
-					if (subOffsets.current[i] - 70 <= scrollPos) {
+					if (subOffsets.current[i] - 80 <= scrollPos) {
 						current = subRefs.current[i].dataset.name
 					}
 				}
@@ -106,7 +106,7 @@ const Menu = ({ data, loading }) => {
 				// Scroll up: first subcategory whose top < scroll, or previous one
 				let current = ""
 				for (let i = subOffsets.current.length - 1; i >= 0; i--) {
-					if (subOffsets.current[i] - 70 <= scrollPos) {
+					if (subOffsets.current[i] - 80 <= scrollPos) {
 						current = subRefs.current[i].dataset.name
 						break
 					}

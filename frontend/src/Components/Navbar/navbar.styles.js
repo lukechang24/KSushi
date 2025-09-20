@@ -70,7 +70,7 @@ export const NavLinkContainer = styled.div`
 	display: none;
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		display: flex;
-		gap: 0 1.375rem;
+		gap: 0 1.15rem;
 	}
 	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
 		gap: 0 3rem;

@@ -1,11 +1,18 @@
 import styled from "styled-components"
 
 export const DeliverySection = styled.div`
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: ${({ theme }) => theme.spacing.pagePadding.mobile};
+	padding: 0 ${({ theme }) => theme.spacing.pagePadding.mobile};
 	margin-bottom: 5rem;
+	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+		padding: 0 ${({ theme }) => theme.spacing.pagePadding.tablet};
+	}
+	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+		padding: 0 ${({ theme }) => theme.spacing.pagePadding.desktop};
+	}
 `
 
 export const DeliveryTitle = styled.h1`
@@ -22,8 +29,9 @@ export const DeliveryTitle = styled.h1`
 export const DeliveryContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	gap: 5rem 0;
-	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+	gap: 3rem 0;
+
+	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
 		flex-direction: row;
 		gap: 0 5rem;
 	}
@@ -57,9 +65,10 @@ export const DeliveryButton = styled.div`
 	box-sizing: border-box;
 	color: ${({ theme }) => theme.colors.text};
 	border-bottom: 1px solid ${({ theme }) => theme.colors.text};
-	margin-top: 1.5rem;
+	margin-top: 1rem;
 	transition: all 0.2s ease;
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		border-bottom: 1px solid transparent;
+		margin-top: 1.5rem;
 	}
 `

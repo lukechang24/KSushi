@@ -18,7 +18,7 @@ export const HomepageSection = styled.div`
 		background-position: 50% 10%;
 	}
 	@media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
-		background-position: 50% 52.5%;
+		background-position: 50% 50%;
 	}
 `
 

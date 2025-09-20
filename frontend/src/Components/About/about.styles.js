@@ -6,10 +6,13 @@ export const AboutSection = styled.div`
 	flex-direction: column;
 	align-items: center;
 	background-color: ${({ theme }) => theme.colors.background};
-	padding: ${({ theme }) => theme.spacing.pagePadding.mobile};
+	padding: 0 ${({ theme }) => theme.spacing.pagePadding.mobile};
 	margin-bottom: 8rem;
-	@media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
-		// flex-direction: row;
+	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+		padding: 0 ${({ theme }) => theme.spacing.pagePadding.tablet};
+	}
+	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+		padding: 0 ${({ theme }) => theme.spacing.pagePadding.desktop};
 	}
 `
 

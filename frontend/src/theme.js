@@ -14,13 +14,13 @@ const theme = {
   },
   spacing: {
     pagePadding: {
-      mobile: "15px",
-      tablet: "15px",
+      mobile: "1rem",
+      tablet: "1rem",
       desktop: "50px",
     },
 		navbarPadding: {
-			mobile: "15px",
-			tablet: "15px",
+			mobile: "1rem",
+			tablet: "1rem",
 			desktop: "30px"
 		}
   },
