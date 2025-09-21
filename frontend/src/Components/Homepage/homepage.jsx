@@ -12,6 +12,7 @@ const Homepage = () => {
 				<S.HomepageHours>Mon – Sat : 11:30AM – 2:30PM & 5:00PM - 9:00PM</S.HomepageHours>
 				<S.HomepageAddress>16436 Norwalk Blvd Cerritos, CA 90703</S.HomepageAddress>
 			</S.HomepageInfoContainer>
+			<S.HomepageSeperator></S.HomepageSeperator>
 		</S.HomepageSection>
 	)
 }

@@ -96,12 +96,13 @@ export const SubcategoryTitle = styled.h2`
 	box-shadow: ${props => props.$sticky ? "none" : "none"};
 	z-index: 5;
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
-		top: ${props => props.$sticky ? "76px" : "0"};
+		top: ${props => props.$sticky ? "80px" : "0"};
 		font-size: 1.5rem;
+		padding: ${({ theme, $sticky }) => $sticky ? `10px ${theme.spacing.pagePadding.tablet} 10px` : "10px 0 10px"};
 	}
 	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
-		top: ${props => props.$sticky ? "78px" : "0"};
 		font-size: 1.75rem;
+		padding: ${({ theme, $sticky }) => $sticky ? `10px ${theme.spacing.pagePadding.desktop} 10px` : "10px 0 10px"};
 	}
 	@media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
 		width: ${({ theme }) => theme.breakpoints.laptop};

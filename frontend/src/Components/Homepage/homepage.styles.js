@@ -75,3 +75,9 @@ export const HomepageHours = styled.p`
 export const HomepageAddress = styled.address`
 
 `
+
+export const HomepageSeperator = styled.div`
+	width: 100%;
+	height: 4rem;
+	background-color: #111;
+`

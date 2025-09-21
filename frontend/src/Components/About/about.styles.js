@@ -7,12 +7,13 @@ export const AboutSection = styled.div`
 	align-items: center;
 	background-color: ${({ theme }) => theme.colors.background};
 	padding: 0 ${({ theme }) => theme.spacing.pagePadding.mobile};
-	margin-bottom: 8rem;
+	margin-bottom: 3rem;
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		padding: 0 ${({ theme }) => theme.spacing.pagePadding.tablet};
 	}
-	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+	@media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
 		padding: 0 ${({ theme }) => theme.spacing.pagePadding.desktop};
+		margin-bottom: 5rem;
 	}
 `
 

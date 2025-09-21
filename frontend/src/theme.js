@@ -15,13 +15,13 @@ const theme = {
   spacing: {
     pagePadding: {
       mobile: "1rem",
-      tablet: "1rem",
-      desktop: "50px",
+      tablet: "2rem",
+      desktop: "3rem",
     },
 		navbarPadding: {
 			mobile: "1rem",
 			tablet: "1rem",
-			desktop: "30px"
+			desktop: "3rem"
 		}
   },
   breakpoints: {
