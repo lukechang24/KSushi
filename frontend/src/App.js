@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useLayoutEffect, useRef } from "react"
 import { ThemeProvider, createGlobalStyle } from "styled-components"
 import styled from "styled-components"
 import axios from "axios"
@@ -38,7 +38,7 @@ const GlobalStyle = createGlobalStyle`
 `
 const NavbarSpace = styled.div`
 	width: 100%;
-	height: 71px;
+	height: 84.59px;
 `
 
 const LineBreak = styled.hr`
@@ -52,6 +52,18 @@ const App = () => {
 	const [resizeKey, setResizeKey] = useState(0)
 	const [data, setData] = useState(null)
 	const [loading, setLoading] = useState(true)
+
+	const menuRef = useRef(0)
+	const deliveryRef = useRef(0)
+	const aboutRef = useRef(0)
+
+	const scrollToCorrectHeight = (e, el) => {
+		e.preventDefault()
+		window.scrollTo({
+				top: el.current.offsetTop - 50,
+				behavior: 'smooth'
+		})
+	}
 
 	useEffect(() => {
 		// axios.get("http://localhost:4000/menu")
@@ -80,14 +92,14 @@ const App = () => {
 			<ThemeProvider theme={theme}>
 			{/* <ThemeProvider key={resizeKey} theme={theme}> */}
 				<GlobalStyle />
-				<Navbar key={resizeKey}/>
+				<Navbar menuRef={menuRef} deliveryRef={deliveryRef} aboutRef={aboutRef} scrollToCorrectHeight={scrollToCorrectHeight} key={resizeKey}/>
 				<NavbarSpace></NavbarSpace>
-				<Homepage />
-				<Menu data={data} loading={loading}/>
+				<Homepage menuRef={menuRef} scrollToCorrectHeight={scrollToCorrectHeight}/>
+				<Menu data={data} loading={loading} menuRef={menuRef}/>
 				<LineBreak />
-				<Delivery />
+				<Delivery deliveryRef={deliveryRef}/>
 				<LineBreak />
-				<About />
+				<About aboutRef={aboutRef}/>
 			</ThemeProvider>
 		</>
   )

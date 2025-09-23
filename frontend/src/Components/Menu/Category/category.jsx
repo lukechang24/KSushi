@@ -56,8 +56,10 @@ const Category = ({title, items, categoryIndex, categoryListRef, handleItemClick
 						if (!isOpen) return
 						if (!hasMounted.current) {
 							hasMounted.current = true
+							populateSubRefOffset()
 							return
 						}
+						console.log(title, isOpen)
 						populateSubRefOffset()
 						scrollToAccordion()
 					}}
@@ -81,7 +83,7 @@ const Category = ({title, items, categoryIndex, categoryListRef, handleItemClick
 										{(activeSub === subcategory) && 
 											<S.BackToTop 
 												onClick={() => {
-													window.scrollTo({ top: categoryListRef.current.offsetTop - 150, behavior: "instant" })
+													window.scrollTo({ top: categoryListRef.current.offsetTop - 160, behavior: "instant" })
 													handleTab(title)
 												}}
 											>

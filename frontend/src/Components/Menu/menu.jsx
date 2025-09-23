@@ -14,14 +14,13 @@ import * as S from "./menu.styles"
 
 const categoryUrl = [salmon, tuna, chicken, gyoza, yuzu, tempura]
 
-const Menu = ({ data, loading }) => {
-	const [activeTab, setActiveTab] = useState(null)
+const Menu = ({ data, loading, menuRef }) => {
+	const [activeTab, setActiveTab] = useState(data && Object.keys(data)[0])
 	const [activeSub, setActiveSub] = useState("")
 	const [selectedItem, setSelectedItem] = useState(null)
 	const [showHint, setShowHint] = useState(true)
 	
 	const hasMounted = useRef(false)
-	const menuRef = useRef(0)
 	const categoryListRef = useRef(0)
 	const subRefs = useRef([])
 	const subOffsets = useRef([])
@@ -97,7 +96,7 @@ const Menu = ({ data, loading }) => {
 				// Scroll down: last subcategory whose top <= scroll
 				let current = ""
 				for (let i = 0; i < subOffsets.current.length; i++) {
-					if (subOffsets.current[i] - 80 <= scrollPos) {
+					if (subOffsets.current[i] - 90 <= scrollPos) {
 						current = subRefs.current[i].dataset.name
 					}
 				}
@@ -106,7 +105,7 @@ const Menu = ({ data, loading }) => {
 				// Scroll up: first subcategory whose top < scroll, or previous one
 				let current = ""
 				for (let i = subOffsets.current.length - 1; i >= 0; i--) {
-					if (subOffsets.current[i] - 80 <= scrollPos) {
+					if (subOffsets.current[i] - 90 <= scrollPos) {
 						current = subRefs.current[i].dataset.name
 						break
 					}
@@ -137,7 +136,7 @@ const Menu = ({ data, loading }) => {
 	}, [])
 
 	return(
-		<S.MenuSection id="menu">
+		<S.MenuSection ref={menuRef}>
 			{loading 
 				?
 					<S.Menu>
@@ -145,7 +144,7 @@ const Menu = ({ data, loading }) => {
 						<S.Spinner></S.Spinner>
 					</S.Menu>
 				:
-					<S.Menu ref={menuRef}>
+					<S.Menu>
 						<S.MenuTitle>MENU</S.MenuTitle>
 						<S.CategoryLinkContainer>
 							{Object.keys(data).slice(1).map((category, i) => {

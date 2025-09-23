@@ -2,9 +2,9 @@ import * as S from "./delivery.styles"
 import uberEatsLogo from "../../Images/ubereats logo.svg"
 import grubhubLogo from "../../Images/grubhub logo.png"
 
-const Delivery = () => {
+const Delivery = ({ deliveryRef }) => {
 	return(
-		<S.DeliverySection id="delivery">
+		<S.DeliverySection ref={deliveryRef}>
 			<S.DeliveryTitle>DELIVERY</S.DeliveryTitle>
 			<S.DeliveryContainer>
 				<S.DeliveryCard 

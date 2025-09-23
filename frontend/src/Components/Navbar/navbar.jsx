@@ -1,24 +1,45 @@
 import { useState } from "react"
 import Hamburger from "./Hamburger/hamburger"
 
-import logo from "../../Images/ksushi.png"
+import logo from "../../Images/logo.png"
 
 import * as S from "./navbar.styles"
 
 
-const Navbar = () => {
+const Navbar = ({ scrollToCorrectHeight, menuRef, deliveryRef, aboutRef }) => {
 	const [showNav, setShowNav] = useState(false)
+
 	return(
 		<S.NavbarSection>
 			<S.NavbarLogoContainer>
 				<S.NavbarLogo src={logo} />
-				<S.NavbarSlogan>Family-owned and operated since 2005</S.NavbarSlogan>
+				<S.NavbarSlogan>Japanese sushi, hand rolls, & fusion specials</S.NavbarSlogan>
 			</S.NavbarLogoContainer>
 			<S.NavLinkContainer>
-				<S.NavLink href="#menu">MENU</S.NavLink>
-				<S.NavLink href="#delivery">DELIVERY</S.NavLink>
-				<S.NavLink href="#about">OUR STORY</S.NavLink>
-				<S.NavLink href="#contact">CONTACT</S.NavLink>
+				<S.NavLink 
+					onClick={(e) => {
+						e.preventDefault()
+						scrollToCorrectHeight(e, menuRef)
+					}}
+				>
+					MENU
+				</S.NavLink>
+				<S.NavLink 
+					onClick={(e) => {
+						e.preventDefault()
+						scrollToCorrectHeight(e, deliveryRef)
+					}}
+				>
+					DELIVERY
+				</S.NavLink>
+				<S.NavLink 
+					onClick={(e) => {
+						e.preventDefault()
+						scrollToCorrectHeight(e, aboutRef)
+					}}
+				>
+					OUR STORY
+				</S.NavLink>
 			</S.NavLinkContainer>
 			<Hamburger
 				open={showNav}
@@ -32,23 +53,38 @@ const Navbar = () => {
 							setShowNav={setShowNav}
 						/>
 						<S.NavbarLogo src={logo} $sideNav></S.NavbarLogo>
-						<S.NavLink href="#menu" $sideNav onClick={() => setShowNav(false)}>
+						<S.NavLink 
+							$sideNav 
+							onClick={(e) => {
+								scrollToCorrectHeight(e, menuRef);
+								setShowNav(false)
+							}}
+						>
 							MENU
 						</S.NavLink>
-						<S.NavLink href="#delivery" $sideNav onClick={() => setShowNav(false)}>
+						<S.NavLink 
+							$sideNav 
+							onClick={(e) => {
+								scrollToCorrectHeight(e, deliveryRef);
+								setShowNav(false)
+							}}
+						>
 							DELIVERY
 						</S.NavLink>
-						<S.NavLink href="#about" $sideNav onClick={() => setShowNav(false)}>
+						<S.NavLink 
+							$sideNav 
+							onClick={(e) => {
+								scrollToCorrectHeight(e, aboutRef);
+								setShowNav(false)
+							}}
+						>
 							OUR STORY
-						</S.NavLink>
-						<S.NavLink href="#contact" $sideNav onClick={() => setShowNav(false)}>
-							CONTACT
 						</S.NavLink>
 					</S.SideNavLinkContainer>
 					<S.SideNavInfoContainer>
+						<S.SideNavAddress>16436 Norwalk Blvd, Cerritos, CA 90703</S.SideNavAddress>
+						<S.SideNavHours>Mon – Sat: 11:30AM – 2:30PM & 5:00PM – 9:00PM | Sun: Closed</S.SideNavHours>
 						<S.SideNavPhone href="tel:+15629266556">+1 (562) 926-6556</S.SideNavPhone>
-						<S.SideNavHours>Mon – Sat : 11:30AM – 2:30PM & 5:00PM - 9:00PM</S.SideNavHours>
-						<S.SideNavAddress>16436 Norwalk Blvd Cerritos, CA 90703</S.SideNavAddress>
 					</S.SideNavInfoContainer>
 				</S.SideNavContainer>
 			<S.Overlay $open={showNav}></S.Overlay>

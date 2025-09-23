@@ -1,9 +1,9 @@
 import * as S from "./about.styles"
 import familyPhoto from "../../Images/ksushi_in.jpg"
 
-const About = () => {
+const About = ({ aboutRef }) => {
 	return(
-		<S.AboutSection id="about">
+		<S.AboutSection ref={aboutRef}>
 			<S.AboutTitle>OUR STORY</S.AboutTitle>
 			<S.AboutContainer>
 				<S.AboutImage $show src={familyPhoto}></S.AboutImage>

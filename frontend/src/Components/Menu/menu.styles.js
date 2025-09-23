@@ -47,9 +47,12 @@ export const MenuTitle = styled.h1`
 	padding: 5px;
 	border-top: 1px solid ${({ theme }) => theme.colors.primary};
 	border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
-	margin: 5rem 0;
-	@media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
+	margin: 3rem 0;
+	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
 		font-size: 2.5rem;
+	}
+	@media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
+		margin: 5rem 0;
 	}
 `
 
@@ -119,24 +122,6 @@ export const CategoryList = styled.div`
 	width: 100%;
 `
 
-// export const CategoryMarker = styled.button`
-// 	font-family: ${props => props.theme.fonts.secondary};
-// 	position: fixed;
-// 	top: 86px;
-// 	right: ${({ theme }) => theme.spacing.pagePadding.mobile};
-// 	background-color: transparent;
-// 	color: ${({ theme }) => theme.colors.text};
-// 	text-align: right;
-// 	letter-spacing: -0.025em;
-// 	border: 0;
-// 	z-index: 6;
-// 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
-// 		top: 96px;
-// 	}
-// 	@media (min-width: 900px) {
-// 		display: none;
-// 	}
-// `
 
 export const BackToTop = styled.button`
   position: fixed;

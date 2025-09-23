@@ -38,31 +38,35 @@ export const NavbarLogoContainer = styled.div`
 `
 
 export const NavbarLogo = styled.img`
-	width: 130px;
+	width: 175px;
 	position: ${({ $sideNav }) => $sideNav && "absolute"};
 	left: 50%;
 	transform: ${({ $sideNav }) => $sideNav && "translateX(-50%)"};
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
-		width: 100px;
+		// width: 200px;
 	}
 	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
-		width: 150px;
+		width: 12rem;
+	}
+	@media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
+		width: 13rem;
 	}
 `
 
 export const NavbarSlogan = styled.p`
-	font-family: ${({ theme }) => theme.fonts.heading};
-	font-size: 0.75rem;
-	font-weight: 100;
+	font-family: ${({ theme }) => theme.fonts.main};
+	font-size: 0.8rem;
+	font-weight: 400;
 	margin-top: 5px;
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
-		width: 135px;
+		width: 175px;
 		margin-top: 3px;
 	}
 	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
-		width: 150px;
-		font-size: 1rem;
 		width: auto;
+		font-size: 0.875rem;
+	}
+	@media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
 	}
 `
 
@@ -74,29 +78,29 @@ export const NavLinkContainer = styled.div`
 	}
 	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
 		gap: 0 3rem;
+		margin-right: 1rem;
 	}
 	@media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
-		margin-right: 3rem;
+		margin-right: 2rem;
 	}
 `
 
-export const NavLink = styled.a`
-	text-decoration: none;
+export const NavLink = styled.button`
+	background-color: transparent;
   color: ${({ theme }) => theme.colors.text};
   font-weight: 500;
   font-size: 1rem;
+	text-decoration: none;
 	text-align: center;
+	border: none;
   cursor: pointer;
   transition: color 0.2s ease;
   &:hover {
     color: ${({ theme }) => theme.colors.primary};
   }
 
-	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
-		font-size: 0.825rem;
-	}
 	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
-		font-size: 1rem;
+		font-size: 1.25rem;
 	}
 `
 
@@ -119,7 +123,7 @@ export const SideNavContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	width: 70%;
+	width: 85%;
 	height: 100%;
 	background-color: ${({ theme }) => theme.colors.background};
 	padding: 1.5rem 1rem 1rem;
@@ -148,10 +152,10 @@ export const SideNavLinkContainer = styled.div`
 export const SideNavInfoContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	align-item: center;
+	align-items: center;
 	gap: 0.5rem 0;
 	color: ${({ theme }) => theme.colors.text};
-	font-size: 0.8rem;
+	font-size: 0.875rem;
 	text-align: center;
 	margin-bottom: 1rem;
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
@@ -163,14 +167,15 @@ export const SideNavInfoContainer = styled.div`
 	}
 `
 
-export const SideNavPhone = styled.a`
-	color: ${({ theme }) => theme.colors.text};
+export const SideNavAddress = styled.address`
+	font-style: normal;
 `
 
 export const SideNavHours = styled.p`
 	
 `
 
-export const SideNavAddress = styled.address`
-
+export const SideNavPhone = styled.a`
+	color: ${({ theme }) => theme.colors.text};
 `
+
