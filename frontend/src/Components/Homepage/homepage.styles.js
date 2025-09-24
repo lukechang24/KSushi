@@ -17,7 +17,7 @@ export const HomepageSection = styled.div`
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		background-position: 50% 10%;
 	}
-	@media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
+	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
 		background-position: 50% 50%;
 	}
 `
@@ -27,11 +27,14 @@ export const HomepageTagline = styled.p`
 	font-size: 1.375rem;
 	font-weight: 200;
 	text-shadow: 0 8px 10px rgba(0, 0, 0, 1);
-	margin: 10rem 0 2rem;
+	margin: 8rem 0 2rem;
 	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		width: auto;
 		font-size: 1.5rem;
-		margin: 12rem 0 4rem;
+		margin: 10rem 0 4rem;
+	}
+	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+		margin: 8rem 0 4rem;
 	}
 	@media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
 		font-size: 2rem;
@@ -50,18 +53,21 @@ export const HomepageMenuLink = styled.a`
 	padding: 0.75em;
 	border: 1px solid ${({ theme }) => theme.colors.text};
 	border-radius: 1.5px;
-	margin: 0 0 10rem;
+	margin: 0 0 12rem;
 	text-decoration: none;
 	transition: 0.2s linear;
 	&:hover {
 		background-color: ${({ theme }) => theme.colors.text};
 		color: ${({ theme }) => theme.colors.background};
 	}
+	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+		margin: 0 0 14rem;
+	}
 	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
-		margin: 0 0 10rem;
+		margin: 0 0 12rem;
 	}
 	@media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
-		margin: 0 0 10rem;
+		margin: 0 0 14rem;
 	}
 `
 

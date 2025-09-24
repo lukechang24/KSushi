@@ -12,7 +12,6 @@ const Delivery = ({ deliveryRef }) => {
 					target="_blank"
 				>
 					<S.DeliveryLogo
-						$width="15rem"
 						$color="black"
 						$padding="1em 0"
 						src={uberEatsLogo} 
@@ -25,7 +24,6 @@ const Delivery = ({ deliveryRef }) => {
 					target="_blank"
 				>
 					<S.DeliveryLogo 
-						$width="15rem" 
 						$color="white"
 						$padding="2em"
 						src={grubhubLogo}

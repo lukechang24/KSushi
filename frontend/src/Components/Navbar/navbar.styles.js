@@ -89,7 +89,7 @@ export const NavLink = styled.button`
 	background-color: transparent;
   color: ${({ theme }) => theme.colors.text};
   font-weight: 500;
-  font-size: 1rem;
+  font-size: ${({ $sideNav }) => $sideNav ? "1.25rem" : "1rem"};
 	text-decoration: none;
 	text-align: center;
 	border: none;
@@ -99,7 +99,7 @@ export const NavLink = styled.button`
     color: ${({ theme }) => theme.colors.primary};
   }
 
-	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+	@media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
 		font-size: 1.25rem;
 	}
 `
@@ -146,7 +146,7 @@ export const Overlay = styled.div`
 export const SideNavLinkContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	gap: 2rem;
+	gap: 3.5rem;
 `
 
 export const SideNavInfoContainer = styled.div`

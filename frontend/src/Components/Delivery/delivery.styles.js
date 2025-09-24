@@ -33,10 +33,17 @@ export const DeliveryContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 3rem 0;
-
+	margin: 2rem 0;
 	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
 		flex-direction: row;
 		gap: 0 5rem;
+		margin: 3rem 0;
+	}
+	@media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
+		margin: 3rem 0;
+	}
+	@media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
+		margin: 5rem 0;
 	}
 `
 
@@ -57,7 +64,7 @@ export const DeliveryCard = styled.a`
 `
 
 export const DeliveryLogo = styled.img`
-	width: ${({ $width }) => $width};
+	width: 13rem;
 	background-color: ${({ $color }) => $color};
 	padding: ${({ $padding }) => $padding};
 	border-radius: 8px;
