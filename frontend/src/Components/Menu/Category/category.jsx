@@ -59,7 +59,6 @@ const Category = ({title, items, categoryIndex, categoryListRef, handleItemClick
 							populateSubRefOffset()
 							return
 						}
-						console.log(title, isOpen)
 						populateSubRefOffset()
 						scrollToAccordion()
 					}}
