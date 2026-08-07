@@ -2,12 +2,6 @@ import styled, { keyframes } from "styled-components"
 import { FaCircleNotch } from "react-icons/fa"
 import { RxCaretUp } from "react-icons/rx"
 
-const fadeInOut = keyframes`
-	0% { opacity: 0; transform: translate(-50%, -50%) scale(0.95); }
-  10% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-  80% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-  100% { opacity: 0; transform: translate(-50%, -50%) scale(0.95); }
-`
 
 export const MenuSection = styled.div`
 	width: 100%;

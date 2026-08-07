@@ -1,4 +1,4 @@
-import React, { useRef } from "react"
+import React from "react"
 import { AnimatePresence } from "framer-motion"
 
 import ItemCard from "../ItemCard/itemCard"

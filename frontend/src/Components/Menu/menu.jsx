@@ -68,7 +68,7 @@ const Menu = ({ data, loading, menuRef }) => {
 		if (!loading) {
 			setActiveTab(Object.keys(data)[0])
 		}
-	}, [loading])
+	}, [loading, data])
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -116,7 +116,7 @@ const Menu = ({ data, loading, menuRef }) => {
 
 		window.addEventListener("scroll", handleScroll)
 		return () => window.removeEventListener("scroll", handleScroll)
-	}, [])
+	}, [menuRef])
 
 	useLayoutEffect(() => {
   const handleResize = () => {
