@@ -39,7 +39,7 @@ export const AccordionContainer = styled.div`
 	}
 `
 
-export const AccordionTitle = styled.div`
+export const AccordionTitle = styled.h2`
 	display: flex;
 	align-items: center;
 	// color: ${({ $active, theme }) => $active ? `${theme.colors.primary}` : `${theme.colors.text}`};
@@ -84,7 +84,7 @@ export const ItemList = styled(motion.div)`
 	}
 `
 
-export const SubcategoryTitle = styled.h2`
+export const SubcategoryTitle = styled.h3`
 	position: ${props => props.$sticky ? "fixed" : "relative"};
 	top: ${props => props.$sticky ? "84px" : "0"};
 	left: 0;
