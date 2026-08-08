@@ -11,7 +11,7 @@ const About = ({ aboutRef }) => {
 					<S.AboutDescriptionText>
 						Welcome to K.Sushi! For nearly two decades, our family has been proud to serve the Cerritos community traditional Japanese cuisine with heart.
 					</S.AboutDescriptionText>
-					<S.AboutImage src={familyPhoto}></S.AboutImage>
+					<S.AboutImage src={familyPhoto} alt="Family photo"></S.AboutImage>
 					<S.AboutDescriptionText>
 						We specialize in traditional Japanese sushi crafted the authentic way - fresh nigiri, delicate sashimi, and hand rolls. Our sushi chefs have perfected recipes passed down through our family, using only the highest quality fish and ingredients.
 					</S.AboutDescriptionText>

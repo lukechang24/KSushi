@@ -52,7 +52,7 @@ const Modal = ({ data, closeModal }) => {
 					}
 					<S.FullImage
 						src={highRes}
-						alt="Placeholder"
+						alt={data.name}
 						onLoad={() => setLoaded(true)}
 						$isLoaded={loaded}
 					/>

@@ -29,6 +29,7 @@ const ItemCard = ({ data, index, handleItemClick, showHint }) => {
 			<S.ItemImage 
 				src={getMenuImageUrl(data.url, "530x530") || comingSoon}
 				loading="lazy"
+				alt={data.name}
 			/>
 			<S.ItemInfoContainer>
 				<S.ItemName>{formatName(data.name)} {pcs}</S.ItemName>

@@ -71,6 +71,9 @@ const App = () => {
 			.then(response => {
 				setData(response.data)
 				setLoading(false)
+				if (window.snapSaveState) {
+					window.snapSaveState()
+				}
 			})
 			.catch(err => {
 				console.error(err);
